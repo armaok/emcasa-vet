@@ -54,7 +54,7 @@ const servicos = [
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="container">
       <span class="label--hero fade-up">Atendimento veterinário domiciliar</span>
-      <h1 class="fade-up fade-up-2">No aconchego<br /><em>do lar.</em></h1>
+      <h1 class="fade-up fade-up-2">No aconchego<br />do lar.</h1>
       <p class="hero-sub fade-up fade-up-3">
         É onde ele é ele mesmo. Onde quem cuida está.<br />
         Onde o cuidado faz mais sentido.
@@ -74,7 +74,7 @@ const servicos = [
   <!-- SERVIÇOS -->
   <section class="section section--alt" id="servicos">
     <div class="container">
-      <span class="label">O que faço</span>
+      <span class="label label--secao">O que faço</span>
       <h2>Atendo em casa.</h2>
       <div class="divider"></div>
       <ul class="servicos-lista">
@@ -97,7 +97,7 @@ const servicos = [
   <!-- POR QUE EM CASA -->
   <section class="section" id="porque">
     <div class="container">
-      <span class="label">O diferencial</span>
+      <span class="label label--secao">O diferencial</span>
       <h2>Em casa, tudo fica mais claro.</h2>
       <div class="divider"></div>
       <div class="blocos-stack">
@@ -135,7 +135,7 @@ const servicos = [
   <!-- GERIATRIA -->
   <section class="section section--alt" id="geriatria">
     <div class="container">
-      <span class="label">Geriatria veterinária</span>
+      <span class="label label--secao">Geriatria veterinária</span>
       <h2>Envelhecer bem também<br />é um objetivo de saúde.</h2>
       <div class="divider"></div>
       <div class="texto-bloco">
@@ -182,7 +182,7 @@ const servicos = [
           o animal já está — e oriento a família para que o dia a dia faça sentido.
         </p>
       </div>
-      <blockquote class="citacao citacao--dark">
+      <blockquote class="citacao citacao--alt">
         "Meu objetivo é que ele viva bem o tempo que tem. Com conforto, sem dor, no lugar que ele conhece. Isso importa tanto quanto qualquer medicamento."
         <cite>— Vanessa Okamura</cite>
       </blockquote>
@@ -192,7 +192,7 @@ const servicos = [
   <!-- VANESSA -->
   <section class="section" id="vanessa">
     <div class="container">
-      <span class="label">Quem sou eu</span>
+      <span class="label label--secao">Quem sou eu</span>
       <h2>Formação para cuidar<br />em qualquer fase.</h2>
       <div class="divider"></div>
       <div class="vanessa-grid">
@@ -206,7 +206,7 @@ const servicos = [
             Tenho especialização em Cuidados Paliativos e Terapia da Dor pela PUC Minas (384h)
             e registro ativo no CRMV/PR 16455.
           </p>
-          <p>Atendo em Londrina, Cambé e Ibiporã.</p>
+          <p>Atende em Londrina, Cambé e Ibiporã.</p>
         </div>
         <div class="credenciais">
           <div class="credencial-item">
@@ -330,13 +330,11 @@ const servicos = [
   }
 
   .hero h1 {
+    font-size: clamp(2.8rem, 7.5vw, 5rem);
+    font-weight: 600;
+    color: var(--texto);
     margin: 0.5rem 0 1.25rem;
     position: relative;
-  }
-
-  .hero h1 em {
-    font-style: italic;
-    color: var(--lilas);
   }
 
   .hero-sub {
@@ -355,6 +353,12 @@ const servicos = [
     color: var(--suave);
     margin-bottom: 2rem;
     position: relative;
+  }
+
+  /* LABEL SEÇÃO — roxo escuro igual botões */
+  .label--secao {
+    color: var(--lilas-2);
+    font-size: 0.85rem;
   }
 
   /* CITAÇÕES */
@@ -380,25 +384,17 @@ const servicos = [
     font-style: normal;
     font-weight: 700;
     letter-spacing: 0.06em;
-    color: var(--lilas);
+    color: var(--lilas-2);
   }
 
   .citacao--alt {
     margin-top: 2.5rem;
     background: var(--branco);
     border-left-color: var(--lilas);
+    color: var(--texto-2);
   }
 
   .citacao--alt cite { color: var(--lilas-2); }
-
-  .citacao--dark {
-    background: rgba(255,255,255,0.1);
-    border-left-color: var(--lavanda-3);
-    color: rgba(255,255,255,0.95);
-    margin-top: 2.5rem;
-  }
-
-  .citacao--dark cite { color: var(--lavanda-3); }
 
   /* BOTÕES */
   .btn-primary {
@@ -494,6 +490,15 @@ const servicos = [
     max-width: 680px;
   }
 
+  /* SEÇÃO DARK — texto claro e legível */
+  .section--dark .texto-bloco p {
+    color: rgba(255,255,255,0.92);
+  }
+
+  .section--dark h2 {
+    color: #fff;
+  }
+
   /* VANESSA */
   .vanessa-grid {
     display: grid;
@@ -524,7 +529,7 @@ const servicos = [
     font-size: 0.73rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--lilas);
+    color: var(--lilas-2);
     font-weight: 700;
   }
 
