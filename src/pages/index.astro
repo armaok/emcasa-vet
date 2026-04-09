@@ -206,7 +206,7 @@ const servicos = [
             Tenho especialização em Cuidados Paliativos e Terapia da Dor pela PUC Minas (384h)
             e registro ativo no CRMV/PR 16455.
           </p>
-          <p>Atende em Londrina, Cambé e Ibiporã.</p>
+          <p>Atendo em Londrina, Cambé e Ibiporã.</p>
         </div>
         <div class="credenciais">
           <div class="credencial-item">
@@ -233,8 +233,11 @@ const servicos = [
   <!-- CTA FINAL -->
   <section class="section cta-final">
     <div class="container cta-final-inner">
-      <h2>Seu animal merece<br /><em>cuidado em casa.</em></h2>
-      <p>A primeira conversa é pelo WhatsApp. Sem compromisso.</p>
+      <h2>Seu animal merece<br />cuidado em casa.</h2>
+      <p class="cta-sub">
+        A primeira conversa é pelo WhatsApp.<br />
+        <span class="cta-sub-destaque">Sem compromisso.</span>
+      </p>
       <a href={WA} class="btn-primary btn-large" target="_blank" rel="noopener">
         {WA_LABEL}
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.535 5.858L.057 23.428a.5.5 0 0 0 .609.61l5.71-1.494A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.956 9.956 0 0 1-5.127-1.417l-.367-.216-3.808.997 1.013-3.7-.239-.381A9.953 9.953 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
@@ -259,7 +262,9 @@ const servicos = [
       </div>
       <div class="footer-extra">
         <span>Londrina · Cambé · Ibiporã</span>
-        <a href="https://vanessaokamura.com.br" target="_blank" rel="noopener">vanessaokamura.com.br</a>
+        <a href="https://vanessaokamura.com.br" target="_blank" rel="noopener">
+          Autodeclaração e trilha de evidências: vanessaokamura.com.br
+        </a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -355,7 +360,7 @@ const servicos = [
     position: relative;
   }
 
-  /* LABEL SEÇÃO — roxo escuro igual botões */
+  /* LABEL SEÇÃO */
   .label--secao {
     color: var(--lilas-2);
     font-size: 0.85rem;
@@ -475,9 +480,7 @@ const servicos = [
     color: var(--texto);
   }
 
-  .bloco-card p {
-    margin-bottom: 0.75rem;
-  }
+  .bloco-card p { margin-bottom: 0.75rem; }
 
   .bloco-destaque {
     background: var(--rosa);
@@ -490,14 +493,11 @@ const servicos = [
     max-width: 680px;
   }
 
-  /* SEÇÃO DARK — texto claro e legível */
   .section--dark .texto-bloco p {
     color: rgba(255,255,255,0.92);
   }
 
-  .section--dark h2 {
-    color: #fff;
-  }
+  .section--dark h2 { color: #fff; }
 
   /* VANESSA */
   .vanessa-grid {
@@ -546,16 +546,23 @@ const servicos = [
     gap: 1.5rem;
   }
 
-  .cta-final h2 { color: var(--texto); }
-
-  .cta-final h2 em {
-    font-style: italic;
-    color: var(--lilas);
+  .cta-final h2 {
+    color: var(--texto);
+    font-size: clamp(2rem, 4.5vw, 2.8rem);
   }
 
-  .cta-final p {
-    color: var(--suave);
-    font-size: 1.05rem;
+  .cta-sub {
+    font-size: clamp(1.05rem, 2vw, 1.2rem);
+    color: var(--texto-2) !important;
+    font-weight: 500;
+    line-height: 1.7;
+  }
+
+  .cta-sub-destaque {
+    display: block;
+    font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+    font-weight: 700;
+    color: var(--lilas-2);
   }
 
   /* FOOTER */
@@ -607,12 +614,14 @@ const servicos = [
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: rgba(240,235,250,0.6);
   }
 
   .footer-extra a {
     color: var(--lavanda-3);
+    font-size: 0.82rem;
+    line-height: 1.5;
     transition: opacity 0.2s;
   }
 
@@ -627,17 +636,9 @@ const servicos = [
 
   /* RESPONSIVO */
   @media (max-width: 680px) {
-    .vanessa-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .footer-inner {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-
+    .vanessa-grid { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
     .btn-nav { display: none; }
-
     .bloco-card { padding: 1.5rem; }
   }
 </style>
