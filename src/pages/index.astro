@@ -53,7 +53,7 @@ const servicos = [
   <section class="hero">
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="container">
-      <span class="label fade-up">Atendimento veterinário domiciliar</span>
+      <span class="label--hero fade-up">Atendimento veterinário domiciliar</span>
       <h1 class="fade-up fade-up-2">No aconchego<br /><em>do lar.</em></h1>
       <p class="hero-sub fade-up fade-up-3">
         É onde ele é ele mesmo. Onde quem cuida está.<br />
@@ -359,12 +359,12 @@ const servicos = [
 
   /* CITAÇÕES */
   .citacao {
-    position: relative;
-    font-family: var(--font-display);
+    font-family: var(--font-body);
     font-style: italic;
-    font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+    font-size: clamp(1.05rem, 2.2vw, 1.2rem);
+    font-weight: 500;
     color: var(--texto-2);
-    line-height: 1.65;
+    line-height: 1.75;
     max-width: 580px;
     padding: 1.5rem 1.75rem;
     margin: 2rem 0 2.5rem;
@@ -378,8 +378,7 @@ const servicos = [
     margin-top: 0.75rem;
     font-size: 0.85rem;
     font-style: normal;
-    font-family: var(--font-body);
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.06em;
     color: var(--lilas);
   }
@@ -635,7 +634,5 @@ const servicos = [
     .btn-nav { display: none; }
 
     .bloco-card { padding: 1.5rem; }
-
-    .citacao { margin-left: 0; }
   }
 </style>
