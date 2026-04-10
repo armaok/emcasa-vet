@@ -8,6 +8,7 @@ const servicos = [
   {
     nome: 'Consulta clínica',
     desc: 'Para o filhote recém-adotado, para o check-up anual, para quando algo mudou e você quer entender o que é.',
+    citacao: 'Hoje a família cresceu. É um momento lindo — e também é o momento de entender o que esse novo membro precisa para chegar bem na casa dele. Vamos conversar sobre isso juntos.',
   },
   {
     nome: 'Vacinas',
@@ -61,7 +62,7 @@ const servicos = [
       </p>
       <p class="hero-meta fade-up fade-up-3">Londrina · Cambé · Ibiporã</p>
       <blockquote class="citacao fade-up fade-up-4">
-        "Quando chego na casa, já consigo ver coisas que nenhum exame mostra. Onde ele dorme, o potinho de água, como ele me recebe. Isso faz parte da consulta."
+        "Para mim, o pet é um membro da família. Não uso a palavra dono — uso tutor. Porque ele não pertence a ninguém. Ele escolheu estar com vocês."
         <cite>— Vanessa Okamura</cite>
       </blockquote>
       <a href={WA} class="btn-primary fade-up fade-up-4" target="_blank" rel="noopener">
@@ -82,6 +83,12 @@ const servicos = [
           <li class="servico-linha">
             <span class="servico-nome">{s.nome}</span>
             <span class="servico-desc">{s.desc}</span>
+            {s.citacao && (
+              <blockquote class="citacao citacao--servico">
+                "{s.citacao}"
+                <cite>— Vanessa Okamura</cite>
+              </blockquote>
+            )}
           </li>
         ))}
       </ul>
@@ -155,7 +162,7 @@ const servicos = [
         </p>
       </div>
       <blockquote class="citacao citacao--alt">
-        "A gente não trata o envelhecimento como se fosse uma doença. Ajudo a família a entender o que o animal está precisando nessa fase — e muita coisa se resolve em casa mesmo."
+        "O que ele mais quer é simples: que vocês estejam bem. Ele não liga para mais nada além de estar com a família dele, com as pessoas que ele ama. Quando a gente cuida dele, está cuidando dessa troca."
         <cite>— Vanessa Okamura</cite>
       </blockquote>
     </div>
@@ -183,7 +190,7 @@ const servicos = [
         </p>
       </div>
       <blockquote class="citacao citacao--alt">
-        "Meu objetivo é que ele viva bem o tempo que tem. Com conforto, sem dor, no lugar que ele conhece. Isso importa tanto quanto qualquer medicamento."
+        "Ele merece o mesmo cuidado que qualquer membro da família mereceria. Sem culpa, sem julgamento. Com presença."
         <cite>— Vanessa Okamura</cite>
       </blockquote>
     </div>
@@ -401,6 +408,17 @@ const servicos = [
 
   .citacao--alt cite { color: var(--lilas-2); }
 
+  .citacao--servico {
+    margin-top: 1rem;
+    margin-bottom: 0;
+    background: var(--branco);
+    border-left-color: var(--lilas);
+    font-size: clamp(0.95rem, 2vw, 1.05rem);
+    max-width: 100%;
+  }
+
+  .citacao--servico cite { color: var(--lilas-2); }
+
   /* BOTÕES */
   .btn-primary {
     display: inline-flex;
@@ -546,9 +564,11 @@ const servicos = [
     gap: 1.5rem;
   }
 
-  .cta-final h2 {
-    color: var(--texto);
-    font-size: clamp(2rem, 4.5vw, 2.8rem);
+  .cta-final h2 { color: var(--texto); }
+
+  .cta-final h2 em {
+    font-style: italic;
+    color: var(--lilas);
   }
 
   .cta-sub {
@@ -614,7 +634,7 @@ const servicos = [
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: rgba(240,235,250,0.6);
   }
 
