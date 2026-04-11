@@ -46,7 +46,10 @@ const servicos = [
   <nav>
     <div class="container nav-inner">
       <a href="/" class="nav-logo">Em Casa Vet</a>
-      <a href={WA} class="btn-nav" target="_blank" rel="noopener">Agendar consulta</a>
+      <div class="nav-links">
+        <a href="/blog" class="nav-link">Blog</a>
+        <a href={WA} class="btn-nav" target="_blank" rel="noopener">Agendar consulta</a>
+      </div>
     </div>
   </nav>
 
@@ -65,10 +68,13 @@ const servicos = [
         "Para mim, o pet é um membro da família. Não uso a palavra dono — uso tutor. Porque ele não pertence a ninguém. Ele escolheu estar com vocês."
         <cite>— Vanessa Okamura</cite>
       </blockquote>
-      <a href={WA} class="btn-primary fade-up fade-up-4" target="_blank" rel="noopener">
-        {WA_LABEL}
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.535 5.858L.057 23.428a.5.5 0 0 0 .609.61l5.71-1.494A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.956 9.956 0 0 1-5.127-1.417l-.367-.216-3.808.997 1.013-3.7-.239-.381A9.953 9.953 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-      </a>
+      <div class="hero-btns fade-up fade-up-4">
+        <a href="/blog" class="btn-blog">Ler artigos →</a>
+        <a href={WA} class="btn-primary" target="_blank" rel="noopener">
+          {WA_LABEL}
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.535 5.858L.057 23.428a.5.5 0 0 0 .609.61l5.71-1.494A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.956 9.956 0 0 1-5.127-1.417l-.367-.216-3.808.997 1.013-3.7-.239-.381A9.953 9.953 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -261,6 +267,7 @@ const servicos = [
         <span>CRMV/PR 16455</span>
       </div>
       <div class="footer-links">
+        <a href="/blog">Blog</a>
         <a href="#servicos">Serviços</a>
         <a href="#porque">Por que em casa</a>
         <a href="#geriatria">Geriatria</a>
@@ -308,6 +315,21 @@ const servicos = [
     font-weight: 600;
     color: var(--texto);
   }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .nav-link {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--texto-2);
+    transition: color 0.2s;
+  }
+
+  .nav-link:hover { color: var(--lilas-2); }
 
   .btn-nav {
     font-size: 0.9rem;
@@ -365,6 +387,13 @@ const servicos = [
     color: var(--suave);
     margin-bottom: 2rem;
     position: relative;
+  }
+
+  .hero-btns {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
   }
 
   /* LABEL SEÇÃO */
@@ -434,13 +463,29 @@ const servicos = [
     border-radius: 2rem;
     transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
     box-shadow: 0 4px 18px rgba(139,111,192,0.3);
-    position: relative;
   }
 
   .btn-primary:hover {
     background: var(--lilas);
     transform: translateY(-2px);
     box-shadow: 0 6px 24px rgba(139,111,192,0.4);
+  }
+
+  .btn-blog {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--lilas-2);
+    border: 2px solid var(--lavanda-3);
+    padding: 0.85rem 1.75rem;
+    min-height: 56px;
+    border-radius: 2rem;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .btn-blog:hover {
+    background: var(--lavanda-1);
   }
 
   .btn-large {
@@ -566,11 +611,6 @@ const servicos = [
 
   .cta-final h2 { color: var(--texto); }
 
-  .cta-final h2 em {
-    font-style: italic;
-    color: var(--lilas);
-  }
-
   .cta-sub {
     font-size: clamp(1.05rem, 2vw, 1.2rem);
     color: var(--texto-2) !important;
@@ -660,5 +700,6 @@ const servicos = [
     .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
     .btn-nav { display: none; }
     .bloco-card { padding: 1.5rem; }
+    .hero-btns { flex-direction: column; align-items: flex-start; }
   }
 </style>
