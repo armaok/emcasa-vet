@@ -19,7 +19,8 @@ const {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <style is:global>
+    <script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <style is:inline>
       *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
       :root {
@@ -98,6 +99,19 @@ const {
         margin-bottom: 0.85rem;
       }
 
+      .label--hero {
+        font-size: clamp(1rem, 2.5vw, 1.2rem);
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--branco);
+        background: var(--lilas-2);
+        display: inline-block;
+        padding: 0.45rem 1.1rem;
+        border-radius: 2rem;
+        margin-bottom: 1.25rem;
+      }
+
       .section--dark .label { color: var(--lavanda-3); }
 
       .divider {
@@ -123,5 +137,16 @@ const {
   </head>
   <body>
     <slot />
+    <script is:inline>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
   </body>
 </html>
