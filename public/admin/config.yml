@@ -1,0 +1,21 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: public/imagens
+public_folder: /imagens
+
+locale: pt
+
+collections:
+  - name: blog
+    label: Blog
+    folder: src/pages/blog
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Título, name: title, widget: string }
+      - { label: Resumo, name: resumo, widget: text }
+      - { label: Categoria, name: categoria, widget: select, options: [Geriatria, Cuidados Paliativos, Filhotes, Saúde Geral, Comportamento] }
+      - { label: Data, name: date, widget: datetime, format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false }
+      - { label: Conteúdo, name: body, widget: markdown }
