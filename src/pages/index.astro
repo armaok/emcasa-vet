@@ -4,6 +4,11 @@ import Layout from '../layouts/Layout.astro';
 const WA = 'https://wa.me/5543988577434?text=Olá%2C%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20consulta.';
 const WA_LABEL = 'Falar com a Vanessa';
 
+const posts = await Astro.glob('./blog/*.md');
+const recentes = posts
+  .sort((a, b) => new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime())
+  .slice(0, 3);
+
 const servicos = [
   {
     nome: 'Consulta clínica',
@@ -243,6 +248,33 @@ const servicos = [
     </div>
   </section>
 
+  <!-- DO BLOG -->
+  {recentes.length > 0 && (
+    <section class="section section--alt" id="blog">
+      <div class="container">
+        <span class="label label--secao">Do blog</span>
+        <h2>Cuidar começa pela informação.</h2>
+        <p class="blog-intro">Artigos sobre saúde, bem-estar e qualidade de vida para os membros animais da família.</p>
+        <div class="divider"></div>
+        <ul class="blog-recentes">
+          {recentes.map((post) => (
+            <li class="blog-card">
+              <a href={post.url}>
+                <span class="blog-card-categoria">{post.frontmatter.categoria}</span>
+                <h3 class="blog-card-titulo">{post.frontmatter.title}</h3>
+                <p class="blog-card-resumo">{post.frontmatter.resumo}</p>
+                <span class="blog-card-link">Ler artigo →</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+        <div class="cta-center">
+          <a href="/blog" class="btn-blog">Ver todos os artigos</a>
+        </div>
+      </div>
+    </section>
+  )}
+
   <!-- CTA FINAL -->
   <section class="section cta-final">
     <div class="container cta-final-inner">
@@ -396,7 +428,6 @@ const servicos = [
     flex-wrap: wrap;
   }
 
-  /* LABEL SEÇÃO */
   .label--secao {
     color: var(--lilas-2);
     font-size: 0.85rem;
@@ -484,9 +515,7 @@ const servicos = [
     transition: background 0.2s, color 0.2s;
   }
 
-  .btn-blog:hover {
-    background: var(--lavanda-1);
-  }
+  .btn-blog:hover { background: var(--lavanda-1); }
 
   .btn-large {
     font-size: 1.1rem;
@@ -538,11 +567,7 @@ const servicos = [
     border-left: 4px solid var(--lavanda-3);
   }
 
-  .bloco-card h3 {
-    margin-bottom: 0.85rem;
-    color: var(--texto);
-  }
-
+  .bloco-card h3 { margin-bottom: 0.85rem; color: var(--texto); }
   .bloco-card p { margin-bottom: 0.75rem; }
 
   .bloco-destaque {
@@ -556,10 +581,7 @@ const servicos = [
     max-width: 680px;
   }
 
-  .section--dark .texto-bloco p {
-    color: rgba(255,255,255,0.92);
-  }
-
+  .section--dark .texto-bloco p { color: rgba(255,255,255,0.92); }
   .section--dark h2 { color: #fff; }
 
   /* VANESSA */
@@ -594,6 +616,69 @@ const servicos = [
     text-transform: uppercase;
     color: var(--lilas-2);
     font-weight: 700;
+  }
+
+  /* BLOG RECENTES */
+  .blog-intro {
+    font-size: 1rem;
+    color: var(--texto-2);
+    max-width: 520px;
+    margin-bottom: 0.5rem;
+  }
+
+  .blog-recentes {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+
+  .blog-card a {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 1.75rem 2rem;
+    background: var(--branco);
+    border-radius: var(--r);
+    border-left: 4px solid var(--lavanda-3);
+    transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+    text-decoration: none;
+  }
+
+  .blog-card a:hover {
+    box-shadow: 0 4px 24px rgba(139,111,192,0.12);
+    transform: translateY(-2px);
+    border-left-color: var(--lilas);
+  }
+
+  .blog-card-categoria {
+    font-size: 0.73rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--lilas-2);
+  }
+
+  .blog-card-titulo {
+    font-family: var(--font-display);
+    font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+    font-weight: 600;
+    color: var(--texto);
+    line-height: 1.25;
+  }
+
+  .blog-card-resumo {
+    font-size: 0.97rem;
+    color: var(--texto-2);
+    line-height: 1.65;
+  }
+
+  .blog-card-link {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--lilas-2);
+    margin-top: 0.25rem;
   }
 
   /* CTA FINAL */
@@ -639,60 +724,16 @@ const servicos = [
     padding-bottom: 3rem;
   }
 
-  .footer-marca {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-  }
-
-  .footer-marca strong {
-    font-family: var(--font-display);
-    font-size: 1.25rem;
-    color: var(--lavanda-3);
-  }
-
-  .footer-marca span {
-    font-size: 0.9rem;
-    color: rgba(240,235,250,0.6);
-  }
-
-  .footer-links {
-    display: flex;
-    flex-direction: column;
-    gap: 0.65rem;
-  }
-
-  .footer-links a {
-    font-size: 0.95rem;
-    color: rgba(240,235,250,0.75);
-    transition: color 0.2s;
-  }
-
+  .footer-marca { display: flex; flex-direction: column; gap: 0.4rem; }
+  .footer-marca strong { font-family: var(--font-display); font-size: 1.25rem; color: var(--lavanda-3); }
+  .footer-marca span { font-size: 0.9rem; color: rgba(240,235,250,0.6); }
+  .footer-links { display: flex; flex-direction: column; gap: 0.65rem; }
+  .footer-links a { font-size: 0.95rem; color: rgba(240,235,250,0.75); transition: color 0.2s; }
   .footer-links a:hover { color: var(--lavanda-3); }
-
-  .footer-extra {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    font-size: 0.95rem;
-    color: rgba(240,235,250,0.6);
-  }
-
-  .footer-extra a {
-    color: var(--lavanda-3);
-    font-size: 0.82rem;
-    line-height: 1.5;
-    transition: opacity 0.2s;
-  }
-
+  .footer-extra { display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.95rem; color: rgba(240,235,250,0.6); }
+  .footer-extra a { color: var(--lavanda-3); font-size: 0.82rem; line-height: 1.5; transition: opacity 0.2s; }
   .footer-extra a:hover { opacity: 0.75; }
-
-  .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.08);
-    padding: 1rem 0;
-    font-size: 0.8rem;
-    color: rgba(240,235,250,0.3);
-  }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding: 1rem 0; font-size: 0.8rem; color: rgba(240,235,250,0.3); }
 
   /* RESPONSIVO */
   @media (max-width: 680px) {
