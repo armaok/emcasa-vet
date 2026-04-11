@@ -10,4 +10,4 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://emcasa.vet/sitemap-index.xml
+Sitemap: https://emcasa.vet/sitemap.xml
