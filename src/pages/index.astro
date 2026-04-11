@@ -53,7 +53,10 @@ const servicos = [
       <a href="/" class="nav-logo">Em Casa Vet</a>
       <div class="nav-links">
         <a href="/blog" class="nav-link">Blog</a>
-        <a href={WA} class="btn-nav" target="_blank" rel="noopener">Agendar consulta</a>
+        <a href={WA} class="btn-nav-wa" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.535 5.858L.057 23.428a.5.5 0 0 0 .609.61l5.71-1.494A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.956 9.956 0 0 1-5.127-1.417l-.367-.216-3.808.997 1.013-3.7-.239-.381A9.953 9.953 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          <span class="wa-label">Falar com a Vanessa</span>
+        </a>
       </div>
     </div>
   </nav>
@@ -69,10 +72,10 @@ const servicos = [
         Onde o cuidado faz mais sentido.
       </p>
       <p class="hero-meta fade-up fade-up-3">Londrina · Cambé · Ibiporã</p>
-     <blockquote class="citacao fade-up fade-up-4">
-  "Quando chego na casa, já consigo ver coisas que nenhum exame mostra. Onde ele dorme, o potinho de água, como ele me recebe. Isso faz parte da consulta."
-  <cite>— Vanessa Okamura</cite>
-</blockquote>
+      <blockquote class="citacao fade-up fade-up-4">
+        "Quando chego na casa, já consigo ver coisas que nenhum exame mostra. Onde ele dorme, o potinho de água, como ele me recebe. Isso faz parte da consulta."
+        <cite>— Vanessa Okamura</cite>
+      </blockquote>
       <div class="hero-btns fade-up fade-up-4">
         <a href="/blog" class="btn-blog">Ler artigos →</a>
         <a href={WA} class="btn-primary" target="_blank" rel="noopener">
@@ -147,11 +150,11 @@ const servicos = [
           </p>
         </div>
       </div>
+      <blockquote class="citacao citacao--alt">
+        "Para mim, o pet é um membro da família. Não uso a palavra dono — uso tutor. Porque ele não pertence a ninguém. Ele escolheu estar com vocês."
+        <cite>— Vanessa Okamura</cite>
+      </blockquote>
     </div>
-<blockquote class="citacao citacao--alt">
-  "Para mim, o pet é um membro da família. Não uso a palavra dono — uso tutor. Porque ele não pertence a ninguém. Ele escolheu estar com vocês."
-  <cite>— Vanessa Okamura</cite>
-</blockquote>
   </section>
 
   <!-- GERIATRIA -->
@@ -341,8 +344,8 @@ const servicos = [
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
   }
 
   .nav-logo {
@@ -355,7 +358,7 @@ const servicos = [
   .nav-links {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
 
   .nav-link {
@@ -367,20 +370,28 @@ const servicos = [
 
   .nav-link:hover { color: var(--lilas-2); }
 
-  .btn-nav {
-    font-size: 0.9rem;
+  .btn-nav-wa {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: #25D366;
+    color: #fff;
+    font-size: 0.88rem;
     font-weight: 700;
-    color: var(--lilas-2);
-    border: 2px solid var(--lavanda-3);
-    padding: 0.55rem 1.35rem;
+    padding: 0.55rem 1.1rem;
     border-radius: 2rem;
-    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    transition: background 0.2s, transform 0.15s;
+    box-shadow: 0 2px 10px rgba(37,211,102,0.3);
   }
 
-  .btn-nav:hover {
-    background: var(--lilas-2);
-    color: #fff;
-    border-color: var(--lilas-2);
+  .btn-nav-wa:hover {
+    background: #1da851;
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 680px) {
+    .wa-label { display: none; }
+    .nav-link { display: none; }
   }
 
   /* HERO */
@@ -743,7 +754,6 @@ const servicos = [
   @media (max-width: 680px) {
     .vanessa-grid { grid-template-columns: 1fr; }
     .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
-    .btn-nav { display: none; }
     .bloco-card { padding: 1.5rem; }
     .hero-btns { flex-direction: column; align-items: flex-start; }
   }
