@@ -1,0 +1,216 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const posts = await Astro.glob('./*.md');
+const sorted = posts.sort((a, b) =>
+  new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime()
+);
+---
+<Layout title="Blog — Em Casa Vet" description="Artigos sobre saúde e bem-estar animal, geriatria veterinária e cuidados paliativos domiciliários.">
+
+  <nav>
+    <div class="container nav-inner">
+      <a href="/" class="nav-logo">Em Casa Vet</a>
+      <a href="https://wa.me/5543988577434?text=Olá%2C%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20consulta." class="btn-nav" target="_blank" rel="noopener">Agendar consulta</a>
+    </div>
+  </nav>
+
+  <section class="blog-hero">
+    <div class="container">
+      <span class="label label--secao">Blog</span>
+      <h1>Cuidar começa<br /><em>pela informação.</em></h1>
+      <p class="blog-hero-sub">Artigos sobre saúde, bem-estar e qualidade de vida para os membros animais da família.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      {sorted.length === 0 ? (
+        <p class="sem-posts">Em breve, novos artigos por aqui.</p>
+      ) : (
+        <ul class="posts-lista">
+          {sorted.map((post) => (
+            <li class="post-card">
+              <a href={post.url}>
+                <span class="post-categoria">{post.frontmatter.categoria}</span>
+                <h2 class="post-titulo">{post.frontmatter.title}</h2>
+                <p class="post-resumo">{post.frontmatter.resumo}</p>
+                <span class="post-data">
+                  {new Date(post.frontmatter.date).toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' })}
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-marca">
+        <strong>Em Casa Vet</strong>
+        <span>Atendimento Veterinário Domiciliar</span>
+        <span>CRMV/PR 16455</span>
+      </div>
+      <div class="footer-links">
+        <a href="/">Início</a>
+        <a href="/#servicos">Serviços</a>
+        <a href="/#vanessa">A veterinária</a>
+      </div>
+      <div class="footer-extra">
+        <span>Londrina · Cambé · Ibiporã</span>
+        <a href="https://vanessaokamura.com.br" target="_blank" rel="noopener">
+          Autodeclaração e trilha de evidências: vanessaokamura.com.br
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        © 2026 Em Casa Vet — Vanessa Okamura · CRMV/PR 16455
+      </div>
+    </div>
+  </footer>
+
+</Layout>
+
+<style>
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--lavanda-2);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--texto);
+  }
+  .btn-nav {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--lilas-2);
+    border: 2px solid var(--lavanda-3);
+    padding: 0.55rem 1.35rem;
+    border-radius: 2rem;
+    transition: background 0.2s, color 0.2s;
+  }
+  .btn-nav:hover {
+    background: var(--lilas-2);
+    color: #fff;
+    border-color: var(--lilas-2);
+  }
+
+  .blog-hero {
+    padding: clamp(4rem, 10vw, 8rem) 0 clamp(2rem, 5vw, 4rem);
+    background: linear-gradient(150deg, var(--lavanda-1) 0%, var(--rosa) 100%);
+  }
+  .blog-hero h1 {
+    margin: 0.5rem 0 1rem;
+    color: var(--texto);
+  }
+  .blog-hero h1 em {
+    font-style: italic;
+    color: var(--lilas);
+  }
+  .blog-hero-sub {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: var(--texto-2);
+    max-width: 520px;
+  }
+
+  .posts-lista {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .post-card a {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 2rem 2.25rem;
+    background: var(--lavanda-1);
+    border-radius: var(--r);
+    border-left: 4px solid var(--lavanda-3);
+    transition: box-shadow 0.2s, transform 0.2s;
+    text-decoration: none;
+  }
+  .post-card a:hover {
+    box-shadow: 0 4px 24px rgba(139,111,192,0.12);
+    transform: translateY(-2px);
+    border-left-color: var(--lilas);
+  }
+
+  .post-categoria {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--lilas-2);
+  }
+  .post-titulo {
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 3vw, 1.7rem);
+    font-weight: 600;
+    color: var(--texto);
+    line-height: 1.25;
+  }
+  .post-resumo {
+    font-size: 1rem;
+    color: var(--texto-2);
+    line-height: 1.7;
+  }
+  .post-data {
+    font-size: 0.82rem;
+    color: var(--suave);
+    margin-top: 0.25rem;
+  }
+
+  .sem-posts {
+    color: var(--suave);
+    font-style: italic;
+    margin-top: 2rem;
+  }
+
+  footer {
+    background: var(--texto);
+    color: var(--lavanda-1);
+    margin-top: 6rem;
+  }
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  .footer-marca { display: flex; flex-direction: column; gap: 0.4rem; }
+  .footer-marca strong { font-family: var(--font-display); font-size: 1.25rem; color: var(--lavanda-3); }
+  .footer-marca span { font-size: 0.9rem; color: rgba(240,235,250,0.6); }
+  .footer-links { display: flex; flex-direction: column; gap: 0.65rem; }
+  .footer-links a { font-size: 0.95rem; color: rgba(240,235,250,0.75); transition: color 0.2s; }
+  .footer-links a:hover { color: var(--lavanda-3); }
+  .footer-extra { display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.95rem; color: rgba(240,235,250,0.6); }
+  .footer-extra a { color: var(--lavanda-3); font-size: 0.82rem; line-height: 1.5; transition: opacity 0.2s; }
+  .footer-extra a:hover { opacity: 0.75; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding: 1rem 0; font-size: 0.8rem; color: rgba(240,235,250,0.3); }
+
+  @media (max-width: 680px) {
+    .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .btn-nav { display: none; }
+    .post-card a { padding: 1.5rem; }
+  }
+</style>
