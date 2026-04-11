@@ -6,8 +6,18 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://emcasa.vet/blog/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://emcasa.vet/blog/primeiro-post/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://emcasa.vet/roseta/</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.4</priority>
   </url>
 </urlset>
