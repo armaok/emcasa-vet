@@ -88,7 +88,7 @@ const servicos = [
         </div>
       </div>
       <div class="hero-imagem">
-        <img src="/imagens/hero.webp" alt="Veterinária atendendo cachorro em casa com tutor relaxado" loading="eager" />
+        <img src="/imagens/vanessa-real.webp" alt="Vanessa Okamura, veterinária domiciliar, com seus pacientes em casa" loading="eager" />
       </div>
     </div>
   </section>
@@ -474,11 +474,20 @@ const servicos = [
     flex-wrap: wrap;
   }
 
-  .hero-imagem img {
-    width: 100%;
-    border-radius: 1.5rem;
-    box-shadow: 0 8px 40px rgba(139,111,192,0.15);
+.hero-imagem img {
+  width: 100%;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 40px rgba(139,111,192,0.15);
+  object-fit: cover;
+  max-height: 520px;
+}
+
+@media (max-width: 768px) {
+  .hero-imagem {
+    order: -1;
+    margin-bottom: 1rem;
   }
+}
 
   .label--secao {
     color: var(--lilas-2);
