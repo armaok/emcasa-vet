@@ -1,3 +1,6 @@
+Perfeito. Vou gerar o `src/pages/index.astro` completo com todas as imagens nos lugares certos:
+
+```astro
 ---
 import Layout from '../layouts/Layout.astro';
 
@@ -18,6 +21,8 @@ const servicos = [
   {
     nome: 'Vacinas',
     desc: 'Sem estresse de transporte. No horário que funciona para a família.',
+    imagem: '/imagens/vacinas.webp',
+    imagemAlt: 'Gato tranquilo sendo vacinado em casa',
   },
   {
     nome: 'Coleta de exames de sangue',
@@ -64,24 +69,29 @@ const servicos = [
   <!-- HERO -->
   <section class="hero">
     <div class="hero-bg" aria-hidden="true"></div>
-    <div class="container">
-      <span class="label--hero fade-up">Atendimento veterinário domiciliar</span>
-      <h1 class="fade-up fade-up-2">No aconchego<br />do lar.</h1>
-      <p class="hero-sub fade-up fade-up-3">
-        É onde ele é ele mesmo. Onde quem cuida está.<br />
-        Onde o cuidado faz mais sentido.
-      </p>
-      <p class="hero-meta fade-up fade-up-3">Londrina · Cambé · Ibiporã</p>
-      <blockquote class="citacao fade-up fade-up-4">
-        "Quando chego na casa, já consigo ver coisas que nenhum exame mostra. Onde ele dorme, o potinho de água, como ele me recebe. Isso faz parte da consulta."
-        <cite>— Vanessa Okamura</cite>
-      </blockquote>
-      <div class="hero-btns fade-up fade-up-4">
-        <a href="/blog" class="btn-blog">Ler artigos →</a>
-        <a href={WA} class="btn-primary" target="_blank" rel="noopener">
-          {WA_LABEL}
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.535 5.858L.057 23.428a.5.5 0 0 0 .609.61l5.71-1.494A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.956 9.956 0 0 1-5.127-1.417l-.367-.216-3.808.997 1.013-3.7-.239-.381A9.953 9.953 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-        </a>
+    <div class="container hero-inner">
+      <div class="hero-texto">
+        <span class="label--hero fade-up">Atendimento domiciliar</span>
+        <h1 class="fade-up fade-up-2">No aconchego<br />do lar.</h1>
+        <p class="hero-sub fade-up fade-up-3">
+          É onde ele é ele mesmo. Onde quem cuida está.<br />
+          Onde o cuidado faz mais sentido.
+        </p>
+        <p class="hero-meta fade-up fade-up-3">Londrina · Cambé · Ibiporã</p>
+        <blockquote class="citacao fade-up fade-up-4">
+          "Quando chego na casa, já consigo ver coisas que nenhum exame mostra. Onde ele dorme, o potinho de água, como ele me recebe. Isso faz parte da consulta."
+          <cite>— Vanessa Okamura</cite>
+        </blockquote>
+        <div class="hero-btns fade-up fade-up-4">
+          <a href="/blog" class="btn-blog">Ler artigos →</a>
+          <a href={WA} class="btn-primary" target="_blank" rel="noopener">
+            {WA_LABEL}
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.535 5.858L.057 23.428a.5.5 0 0 0 .609.61l5.71-1.494A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.956 9.956 0 0 1-5.127-1.417l-.367-.216-3.808.997 1.013-3.7-.239-.381A9.953 9.953 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="hero-imagem">
+        <img src="/imagens/hero.webp" alt="Veterinária atendendo cachorro em casa com tutor relaxado" loading="eager" />
       </div>
     </div>
   </section>
@@ -97,6 +107,9 @@ const servicos = [
           <li class="servico-linha">
             <span class="servico-nome">{s.nome}</span>
             <span class="servico-desc">{s.desc}</span>
+            {s.imagem && (
+              <img class="servico-img" src={s.imagem} alt={s.imagemAlt} loading="lazy" />
+            )}
             {s.citacao && (
               <blockquote class="citacao citacao--servico">
                 "{s.citacao}"
@@ -121,33 +134,38 @@ const servicos = [
       <span class="label label--secao">O diferencial</span>
       <h2>Em casa, tudo fica mais claro.</h2>
       <div class="divider"></div>
-      <div class="blocos-stack">
-        <div class="bloco-card">
-          <h3>Quem fala comigo</h3>
-          <p>
-            Na consulta domiciliar, converso com quem acorda cedo para ver se ele comeu.
-            Com quem notou que ele está bebendo menos água. Com quem sabe que ele manca às vezes —
-            mas só quando levanta depois de dormir.
-          </p>
-          <p>Essa pessoa raramente é a que dirige até a clínica.</p>
+      <div class="porque-layout">
+        <div class="blocos-stack">
+          <div class="bloco-card">
+            <h3>Quem fala comigo</h3>
+            <p>
+              Na consulta domiciliar, converso com quem acorda cedo para ver se ele comeu.
+              Com quem notou que ele está bebendo menos água. Com quem sabe que ele manca às vezes —
+              mas só quando levanta depois de dormir.
+            </p>
+            <p>Essa pessoa raramente é a que dirige até a clínica.</p>
+          </div>
+          <div class="bloco-card">
+            <h3>Como o animal se apresenta</h3>
+            <p>
+              Está no sofá dele. No cheiro dele. Sem outros bichos, sem sala de espera.
+              Sendo ele mesmo — do jeito que preciso ver para entender o que está acontecendo.
+            </p>
+            <p>
+              Também consigo ver onde ele dorme, o que come, se passa calor ou frio,
+              como se movimenta no próprio espaço. Informações que a clínica nunca vai ter.
+            </p>
+          </div>
+          <div class="bloco-card bloco-destaque">
+            <h3>Nos exames de sangue — especialmente em gatos</h3>
+            <p>
+              O estresse do transporte eleva o cortisol e pode distorcer os resultados.
+              Em casa, o exame reflete o animal — não o dia difícil que ele teve.
+            </p>
+          </div>
         </div>
-        <div class="bloco-card">
-          <h3>Como o animal se apresenta</h3>
-          <p>
-            Está no sofá dele. No cheiro dele. Sem outros bichos, sem sala de espera.
-            Sendo ele mesmo — do jeito que preciso ver para entender o que está acontecendo.
-          </p>
-          <p>
-            Também consigo ver onde ele dorme, o que come, se passa calor ou frio,
-            como se movimenta no próprio espaço. Informações que a clínica nunca vai ter.
-          </p>
-        </div>
-        <div class="bloco-card bloco-destaque">
-          <h3>Nos exames de sangue — especialmente em gatos</h3>
-          <p>
-            O estresse do transporte eleva o cortisol e pode distorcer os resultados.
-            Em casa, o exame reflete o animal — não o dia difícil que ele teve.
-          </p>
+        <div class="porque-imagem">
+          <img src="/imagens/porque-em-casa.webp" alt="Veterinária observando gato no próprio ambiente doméstico" loading="lazy" />
         </div>
       </div>
       <blockquote class="citacao citacao--alt">
@@ -163,26 +181,31 @@ const servicos = [
       <span class="label label--secao">Geriatria veterinária</span>
       <h2>Envelhecer bem também<br />é um objetivo de saúde.</h2>
       <div class="divider"></div>
-      <div class="texto-bloco">
-        <p>
-          Alguns animais chegam para mim ainda filhotes e envelhecem comigo como veterinária
-          de referência. Outros chegam já na terceira idade — companheiros de vida de tutores que
-          também envelheceram juntos, ou herdados de pais que partiram.
-        </p>
-        <p>
-          Esses animais precisam de um olhar diferente. A dor nas juntas que mudou o jeito de subir
-          no sofá. O frio que sentem mais. A ração que precisa mudar. A desorientação que parece
-          demência. A rotina da casa que pode ser ajustada para ele viver melhor.
-        </p>
-        <p>
-          Vejo tudo isso no ambiente onde acontece. O objetivo não é curar o envelhecimento —
-          é que essa fase seja vivida com conforto, presença e qualidade.
-        </p>
+      <div class="secao-com-imagem">
+        <div class="texto-bloco">
+          <p>
+            Alguns animais chegam para mim ainda filhotes e envelhecem comigo como veterinária
+            de referência. Outros chegam já na terceira idade — companheiros de vida de tutores que
+            também envelheceram juntos, ou herdados de pais que partiram.
+          </p>
+          <p>
+            Esses animais precisam de um olhar diferente. A dor nas juntas que mudou o jeito de subir
+            no sofá. O frio que sentem mais. A ração que precisa mudar. A desorientação que parece
+            demência. A rotina da casa que pode ser ajustada para ele viver melhor.
+          </p>
+          <p>
+            Vejo tudo isso no ambiente onde acontece. O objetivo não é curar o envelhecimento —
+            é que essa fase seja vivida com conforto, presença e qualidade.
+          </p>
+          <blockquote class="citacao citacao--alt">
+            "O que ele mais quer é simples: que vocês estejam bem. Ele não liga para mais nada além de estar com a família dele, com as pessoas que ele ama. Quando a gente cuida dele, está cuidando dessa troca."
+            <cite>— Vanessa Okamura</cite>
+          </blockquote>
+        </div>
+        <div class="secao-imagem">
+          <img src="/imagens/geriatria.webp" alt="Veterinária orientando tutor idoso sobre medicação do cachorro em casa" loading="lazy" />
+        </div>
       </div>
-      <blockquote class="citacao citacao--alt">
-        "O que ele mais quer é simples: que vocês estejam bem. Ele não liga para mais nada além de estar com a família dele, com as pessoas que ele ama. Quando a gente cuida dele, está cuidando dessa troca."
-        <cite>— Vanessa Okamura</cite>
-      </blockquote>
     </div>
   </section>
 
@@ -192,25 +215,30 @@ const servicos = [
       <span class="label">Cuidados paliativos</span>
       <h2>Qualidade de vida —<br />em qualquer fase do tratamento.</h2>
       <div class="divider"></div>
-      <div class="texto-bloco">
-        <p>
-          O cuidado paliativo não começa quando a cura deixa de ser possível. Ele começa quando
-          o bem-estar do animal precisa ser protegido ativamente — seja durante um tratamento, seja depois.
-        </p>
-        <p>
-          Muitos pacientes chegam após um diagnóstico de câncer, após um longo caminho oncológico.
-          Outros têm doenças crônicas como insuficiência renal, que exigem cuidados contínuos no dia a dia.
-        </p>
-        <p>
-          Gestão da dor, ajuste alimentar, controle térmico, soro em casa, medicação para quem o
-          responsável não consegue administrar sozinho. Organizo o cuidado no ambiente onde
-          o animal já está — e oriento a família para que o dia a dia faça sentido.
-        </p>
+      <div class="secao-com-imagem secao-com-imagem--invertida">
+        <div class="texto-bloco">
+          <p>
+            O cuidado paliativo não começa quando a cura deixa de ser possível. Ele começa quando
+            o bem-estar do animal precisa ser protegido ativamente — seja durante um tratamento, seja depois.
+          </p>
+          <p>
+            Muitos pacientes chegam após um diagnóstico de câncer, após um longo caminho oncológico.
+            Outros têm doenças crônicas como insuficiência renal, que exigem cuidados contínuos no dia a dia.
+          </p>
+          <p>
+            Gestão da dor, ajuste alimentar, controle térmico, soro em casa, medicação para quem o
+            responsável não consegue administrar sozinho. Organizo o cuidado no ambiente onde
+            o animal já está — e oriento a família para que o dia a dia faça sentido.
+          </p>
+          <blockquote class="citacao citacao--alt">
+            "Ele merece o mesmo cuidado que qualquer membro da família mereceria. Sem culpa, sem julgamento. Com presença."
+            <cite>— Vanessa Okamura</cite>
+          </blockquote>
+        </div>
+        <div class="secao-imagem">
+          <img src="/imagens/paliativos.webp" alt="Veterinária ausculando cachorro tranquilo no sofá com tutor idoso presente" loading="lazy" />
+        </div>
       </div>
-      <blockquote class="citacao citacao--alt">
-        "Ele merece o mesmo cuidado que qualquer membro da família mereceria. Sem culpa, sem julgamento. Com presença."
-        <cite>— Vanessa Okamura</cite>
-      </blockquote>
     </div>
   </section>
 
@@ -220,35 +248,40 @@ const servicos = [
       <span class="label label--secao">Quem sou eu</span>
       <h2>Formação para cuidar<br />em qualquer fase.</h2>
       <div class="divider"></div>
-      <div class="vanessa-grid">
-        <div class="texto-bloco">
-          <p>
-            Sou médica veterinária com mestrado em Clínicas Veterinárias pela UEL —
-            com dissertação pioneira no Paraná sobre medicina veterinária baseada em evidências no
-            atendimento domiciliar.
-          </p>
-          <p>
-            Tenho especialização em Cuidados Paliativos e Terapia da Dor pela PUC Minas (384h)
-            e registro ativo no CRMV/PR 16455.
-          </p>
-          <p>Atendo em Londrina, Cambé e Ibiporã.</p>
+      <div class="vanessa-layout">
+        <div class="vanessa-imagem">
+          <img src="/imagens/vanessa.webp" alt="Veterinária e tutora cuidando de golden retriever juntas em casa" loading="lazy" />
         </div>
-        <div class="credenciais">
-          <div class="credencial-item">
-            <span class="credencial-label">Mestrado</span>
-            <span>Clínicas Veterinárias — UEL</span>
+        <div class="vanessa-conteudo">
+          <div class="texto-bloco">
+            <p>
+              Sou médica veterinária com mestrado em Clínicas Veterinárias pela UEL —
+              com dissertação pioneira no Paraná sobre medicina veterinária baseada em evidências no
+              atendimento domiciliar.
+            </p>
+            <p>
+              Tenho especialização em Cuidados Paliativos e Terapia da Dor pela PUC Minas (384h)
+              e registro ativo no CRMV/PR 16455.
+            </p>
+            <p>Atendo em Londrina, Cambé e Ibiporã.</p>
           </div>
-          <div class="credencial-item">
-            <span class="credencial-label">Especialização</span>
-            <span>Cuidados Paliativos e Terapia da Dor — PUC Minas</span>
-          </div>
-          <div class="credencial-item">
-            <span class="credencial-label">Registro</span>
-            <span>CRMV/PR 16455 — ativo</span>
-          </div>
-          <div class="credencial-item">
-            <span class="credencial-label">Cobertura</span>
-            <span>Londrina · Cambé · Ibiporã</span>
+          <div class="credenciais">
+            <div class="credencial-item">
+              <span class="credencial-label">Mestrado</span>
+              <span>Clínicas Veterinárias — UEL</span>
+            </div>
+            <div class="credencial-item">
+              <span class="credencial-label">Especialização</span>
+              <span>Cuidados Paliativos e Terapia da Dor — PUC Minas</span>
+            </div>
+            <div class="credencial-item">
+              <span class="credencial-label">Registro</span>
+              <span>CRMV/PR 16455 — ativo</span>
+            </div>
+            <div class="credencial-item">
+              <span class="credencial-label">Cobertura</span>
+              <span>Londrina · Cambé · Ibiporã</span>
+            </div>
           </div>
         </div>
       </div>
@@ -285,6 +318,7 @@ const servicos = [
   <!-- CTA FINAL -->
   <section class="section cta-final">
     <div class="container cta-final-inner">
+      <img src="/imagens/cta.webp" alt="Agende sua consulta veterinária domiciliar" class="cta-imagem" loading="lazy" />
       <h2>Seu animal merece<br />cuidado em casa.</h2>
       <p class="cta-sub">
         A primeira conversa é pelo WhatsApp.<br />
@@ -389,15 +423,10 @@ const servicos = [
     transform: translateY(-1px);
   }
 
-  @media (max-width: 680px) {
-    .wa-label { display: none; }
-    .nav-link { display: none; }
-  }
-
   /* HERO */
   .hero {
     position: relative;
-    padding: clamp(4.5rem, 12vw, 10rem) 0 clamp(4rem, 10vw, 8rem);
+    padding: clamp(4rem, 10vw, 8rem) 0;
     overflow: hidden;
   }
 
@@ -410,21 +439,27 @@ const servicos = [
     pointer-events: none;
   }
 
-  .hero h1 {
-    font-size: clamp(2.8rem, 7.5vw, 5rem);
-    font-weight: 600;
-    color: var(--texto);
-    margin: 0.5rem 0 1.25rem;
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
     position: relative;
   }
 
+  .hero h1 {
+    font-size: clamp(2.4rem, 6vw, 4.5rem);
+    font-weight: 600;
+    color: var(--texto);
+    margin: 0.5rem 0 1.25rem;
+  }
+
   .hero-sub {
-    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+    font-size: clamp(1.05rem, 2vw, 1.2rem);
     color: var(--texto-2);
-    max-width: 520px;
+    max-width: 480px;
     margin-bottom: 0.75rem;
     line-height: 1.75;
-    position: relative;
   }
 
   .hero-meta {
@@ -433,7 +468,6 @@ const servicos = [
     text-transform: uppercase;
     color: var(--suave);
     margin-bottom: 2rem;
-    position: relative;
   }
 
   .hero-btns {
@@ -441,6 +475,12 @@ const servicos = [
     align-items: center;
     gap: 1rem;
     flex-wrap: wrap;
+  }
+
+  .hero-imagem img {
+    width: 100%;
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 40px rgba(139,111,192,0.15);
   }
 
   .label--secao {
@@ -567,12 +607,35 @@ const servicos = [
     line-height: 1.7;
   }
 
-  /* BLOCOS */
+  .servico-img {
+    width: 100%;
+    max-width: 480px;
+    border-radius: 1rem;
+    margin-top: 1rem;
+    box-shadow: 0 4px 20px rgba(139,111,192,0.1);
+  }
+
+  /* POR QUE EM CASA */
+  .porque-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+    margin-top: 2rem;
+  }
+
   .blocos-stack {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    margin-top: 2rem;
+  }
+
+  .porque-imagem img {
+    width: 100%;
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 40px rgba(139,111,192,0.12);
+    position: sticky;
+    top: 6rem;
   }
 
   .bloco-card {
@@ -590,22 +653,61 @@ const servicos = [
     border-left-color: var(--lilas);
   }
 
+  /* SEÇÕES COM IMAGEM */
+  .secao-com-imagem {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .secao-com-imagem--invertida {
+    direction: rtl;
+  }
+
+  .secao-com-imagem--invertida > * {
+    direction: ltr;
+  }
+
+  .secao-imagem img {
+    width: 100%;
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+  }
+
   /* TEXTOS */
   .texto-bloco p {
     margin-bottom: 1.1rem;
-    max-width: 680px;
   }
 
   .section--dark .texto-bloco p { color: rgba(255,255,255,0.92); }
   .section--dark h2 { color: #fff; }
+  .section--dark .citacao--alt {
+    background: rgba(255,255,255,0.1);
+    border-left-color: var(--lavanda-3);
+    color: rgba(255,255,255,0.92);
+  }
+  .section--dark .citacao--alt cite { color: var(--lavanda-3); }
 
   /* VANESSA */
-  .vanessa-grid {
+  .vanessa-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
-    margin-top: 2rem;
     align-items: start;
+    margin-top: 2rem;
+  }
+
+  .vanessa-imagem img {
+    width: 100%;
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 40px rgba(139,111,192,0.12);
+  }
+
+  .vanessa-conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
   }
 
   .credenciais {
@@ -709,6 +811,13 @@ const servicos = [
     gap: 1.5rem;
   }
 
+  .cta-imagem {
+    width: 100%;
+    max-width: 320px;
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 40px rgba(139,111,192,0.15);
+  }
+
   .cta-final h2 { color: var(--texto); }
 
   .cta-sub {
@@ -751,10 +860,29 @@ const servicos = [
   .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding: 1rem 0; font-size: 0.8rem; color: rgba(240,235,250,0.3); }
 
   /* RESPONSIVO */
-  @media (max-width: 680px) {
-    .vanessa-grid { grid-template-columns: 1fr; }
+  @media (max-width: 768px) {
+    .hero-inner,
+    .porque-layout,
+    .secao-com-imagem,
+    .vanessa-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .secao-com-imagem--invertida {
+      direction: ltr;
+    }
+
+    .hero-imagem { order: -1; }
+    .porque-imagem img { position: static; }
     .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
     .bloco-card { padding: 1.5rem; }
     .hero-btns { flex-direction: column; align-items: flex-start; }
+    .wa-label { display: none; }
+    .nav-link { display: none; }
   }
 </style>
+```
+
+---
+
+Substitui e me fala como ficou — especialmente no mobile, que é onde a Vanessa e sua mãe vão ver primeiro.
