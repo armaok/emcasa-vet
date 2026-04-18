@@ -1,6 +1,4 @@
 ---
-import WhatsAppFloat from '../components/WhatsAppFloat.astro';
-
 export interface Props {
   title?: string;
   description?: string;
@@ -167,7 +165,6 @@ const schema = {
         --texto:      #1a1523;
         --texto-2:    #3d3352;
         --suave:      #7a6e90;
-        --wa-green:   #25D366;
 
         --font-display: 'Playfair Display', Georgia, serif;
         --font-body:    'Nunito', sans-serif;
@@ -187,6 +184,7 @@ const schema = {
         font-weight: 400;
         line-height: 1.85;
         -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
       }
 
       h1, h2, h3 {
@@ -271,7 +269,6 @@ const schema = {
   </head>
   <body>
     <slot />
-    <WhatsAppFloat />
     <script is:inline>
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on("init", user => {
