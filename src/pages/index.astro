@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 
 const WA = 'https://wa.me/5543988577434?text=Olá%2C%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20consulta.';
+const WA_MEDIO = 'https://wa.me/5543988577434?text=Olá%2C%20Dra.%20Vanessa.%20Gostaria%20de%20entender%20como%20funciona%20o%20atendimento%20e%20saber%20os%20valores.';
 const WA_LABEL = 'Falar com a Vanessa';
 
 const posts = await Astro.glob('./blog/*.md');
@@ -48,6 +49,20 @@ const servicos = [
 ];
 ---
 <Layout>
+
+  <!-- BOTÃO FLUTUANTE WHATSAPP -->
+  
+    href={WA_MEDIO}
+    class="wa-float"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Falar com a Dra. Vanessa no WhatsApp"
+  >
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.535 5.858L.057 23.428a.5.5 0 0 0 .609.61l5.71-1.494A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.956 9.956 0 0 1-5.127-1.417l-.367-.216-3.808.997 1.013-3.7-.239-.381A9.953 9.953 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+    </svg>
+  </a>
 
   <!-- NAV -->
   <nav>
@@ -117,8 +132,8 @@ const servicos = [
         ))}
       </ul>
       <div class="cta-center">
-        <a href={WA} class="btn-primary" target="_blank" rel="noopener">
-          {WA_LABEL}
+        <a href={WA_MEDIO} class="btn-secundario" target="_blank" rel="noopener">
+          Perguntar no WhatsApp
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.535 5.858L.057 23.428a.5.5 0 0 0 .609.61l5.71-1.494A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.956 9.956 0 0 1-5.127-1.417l-.367-.216-3.808.997 1.013-3.7-.239-.381A9.953 9.953 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
         </a>
       </div>
@@ -200,7 +215,7 @@ const servicos = [
           </blockquote>
         </div>
         <div class="secao-imagem">
-          <img src="/imagens/geriatria.webp" alt="Veterinária orientando tutor idoso sobre medicação do cachorro em casa" loading="lazy" />
+          <img src="/imagens/geriatria.webp" alt="Veterinária orientando tutor sobre medicação do cachorro em casa" loading="lazy" />
         </div>
       </div>
     </div>
@@ -285,33 +300,6 @@ const servicos = [
     </div>
   </section>
 
-  <!-- DO BLOG -->
-  {recentes.length > 0 && (
-    <section class="section section--alt" id="blog">
-      <div class="container">
-        <span class="label label--secao">Do blog</span>
-        <h2>Cuidar começa pela informação.</h2>
-        <p class="blog-intro">Artigos sobre saúde, bem-estar e qualidade de vida para os membros animais da família.</p>
-        <div class="divider"></div>
-        <ul class="blog-recentes">
-          {recentes.map((post) => (
-            <li class="blog-card">
-              <a href={post.url}>
-                <span class="blog-card-categoria">{post.frontmatter.categoria}</span>
-                <h3 class="blog-card-titulo">{post.frontmatter.title}</h3>
-                <p class="blog-card-resumo">{post.frontmatter.resumo}</p>
-                <span class="blog-card-link">Ler artigo →</span>
-              </a>
-            </li>
-          ))}
-        </ul>
-        <div class="cta-center">
-          <a href="/blog" class="btn-blog">Ver todos os artigos</a>
-        </div>
-      </div>
-    </section>
-  )}
-
   <!-- CTA FINAL -->
   <section class="section cta-final">
     <div class="container cta-final-inner">
@@ -344,27 +332,60 @@ const servicos = [
         <a href="#paliativos">Paliativos</a>
         <a href="#vanessa">A veterinária</a>
       </div>
-    <div class="footer-extra">
-  <span>Londrina · Cambé · Ibiporã</span>
-</div>
+      <div class="footer-extra">
+        <span>Londrina · Cambé · Ibiporã</span>
+      </div>
     </div>
     <div class="footer-bottom">
       <div class="container">
         © 2026 Em Casa Vet — Vanessa Okamura · CRMV/PR 16455
       </div>
     </div>
-<div class="footer-roseta">
-  <div class="container">
-    <a href="https://vanessaokamura.com.br/roseta" target="_blank" rel="noopener">
-      Autodeclaração e trilha de evidências: vanessaokamura.com.br
-    </a>
-  </div>
-</div>
+    <div class="footer-roseta">
+      <div class="container">
+        <a href="https://vanessaokamura.com.br/roseta" target="_blank" rel="noopener">
+          Autodeclaração e trilha de evidências: vanessaokamura.com.br
+        </a>
+      </div>
+    </div>
   </footer>
 
 </Layout>
 
 <style>
+  /* BOTÃO FLUTUANTE */
+  .wa-float {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 999;
+    width: 56px;
+    height: 56px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    animation: waEntrada 0.4s ease 1.5s both;
+  }
+
+  .wa-float:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+  }
+
+  @keyframes waEntrada {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (min-width: 768px) {
+    .wa-float { width: 64px; height: 64px; }
+    .wa-float svg { width: 32px; height: 32px; }
+  }
+
   /* NAV */
   nav {
     position: sticky;
@@ -386,524 +407,3 @@ const servicos = [
   .nav-logo {
     font-family: var(--font-display);
     font-size: 1.4rem;
-    font-weight: 600;
-    color: var(--texto);
-  }
-
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 1.25rem;
-  }
-
-  .nav-link {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--texto-2);
-    transition: color 0.2s;
-  }
-
-  .nav-link:hover { color: var(--lilas-2); }
-
-  .btn-nav-wa {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    background: #25D366;
-    color: #fff;
-    font-size: 0.88rem;
-    font-weight: 700;
-    padding: 0.55rem 1.1rem;
-    border-radius: 2rem;
-    transition: background 0.2s, transform 0.15s;
-    box-shadow: 0 2px 10px rgba(37,211,102,0.3);
-  }
-
-  .btn-nav-wa:hover {
-    background: #1da851;
-    transform: translateY(-1px);
-  }
-
-  /* HERO */
-  .hero {
-    position: relative;
-    padding: clamp(4rem, 10vw, 8rem) 0;
-    overflow: hidden;
-  }
-
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 65% 75% at 95% 40%, var(--lavanda-2) 0%, transparent 65%),
-      radial-gradient(ellipse 40% 50% at 5% 90%, var(--rosa) 0%, transparent 60%);
-    pointer-events: none;
-  }
-
-  .hero-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: center;
-    position: relative;
-  }
-
-  .hero h1 {
-    font-size: clamp(2.4rem, 6vw, 4.5rem);
-    font-weight: 600;
-    color: var(--texto);
-    margin: 0.5rem 0 1.25rem;
-  }
-
-  .hero-sub {
-    font-size: clamp(1.05rem, 2vw, 1.2rem);
-    color: var(--texto-2);
-    max-width: 480px;
-    margin-bottom: 0.75rem;
-    line-height: 1.75;
-  }
-
-  .hero-meta {
-    font-size: 0.85rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--suave);
-    margin-bottom: 2rem;
-  }
-
-  .hero-btns {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-.hero-imagem img {
-  width: 100%;
-  border-radius: 1.5rem;
-  box-shadow: 0 8px 40px rgba(139,111,192,0.15);
-  object-fit: cover;
-  max-height: 520px;
-}
-
-@media (max-width: 768px) {
-  .hero-imagem {
-    order: -1;
-    margin-bottom: 1rem;
-  }
-}
-
-  .label--secao {
-    color: var(--lilas-2);
-    font-size: 0.85rem;
-  }
-
-  /* CITAÇÕES */
-  .citacao {
-    font-family: var(--font-body);
-    font-style: italic;
-    font-size: clamp(1.05rem, 2.2vw, 1.2rem);
-    font-weight: 500;
-    color: var(--texto-2);
-    line-height: 1.75;
-    max-width: 580px;
-    padding: 1.5rem 1.75rem;
-    margin: 2rem 0 2.5rem;
-    background: var(--lavanda-1);
-    border-left: 4px solid var(--lavanda-3);
-    border-radius: 0 var(--r) var(--r) 0;
-  }
-
-  .citacao cite {
-    display: block;
-    margin-top: 0.75rem;
-    font-size: 0.85rem;
-    font-style: normal;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    color: var(--lilas-2);
-  }
-
-  .citacao--alt {
-    margin-top: 2.5rem;
-    background: var(--branco);
-    border-left-color: var(--lilas);
-    color: var(--texto-2);
-  }
-
-  .citacao--alt cite { color: var(--lilas-2); }
-
-  .citacao--servico {
-    margin-top: 1rem;
-    margin-bottom: 0;
-    background: var(--branco);
-    border-left-color: var(--lilas);
-    font-size: clamp(0.95rem, 2vw, 1.05rem);
-    max-width: 100%;
-  }
-
-  .citacao--servico cite { color: var(--lilas-2); }
-
-  /* BOTÕES */
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    background: var(--lilas-2);
-    color: #fff;
-    font-family: var(--font-body);
-    font-size: 1rem;
-    font-weight: 700;
-    padding: 1rem 2rem;
-    min-height: 56px;
-    border-radius: 2rem;
-    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-    box-shadow: 0 4px 18px rgba(139,111,192,0.3);
-  }
-
-  .btn-primary:hover {
-    background: var(--lilas);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 24px rgba(139,111,192,0.4);
-  }
-
-  .btn-blog {
-    display: inline-flex;
-    align-items: center;
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: var(--lilas-2);
-    border: 2px solid var(--lavanda-3);
-    padding: 0.85rem 1.75rem;
-    min-height: 56px;
-    border-radius: 2rem;
-    transition: background 0.2s, color 0.2s;
-  }
-
-  .btn-blog:hover { background: var(--lavanda-1); }
-
-  .btn-large {
-    font-size: 1.1rem;
-    padding: 1.1rem 2.5rem;
-  }
-
-  .cta-center { margin-top: 3rem; }
-
-  /* SERVIÇOS */
-  .servicos-lista {
-    list-style: none;
-    margin-top: 2rem;
-    border-top: 2px solid var(--lavanda-2);
-  }
-
-  .servico-linha {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    padding: 1.6rem 0;
-    border-bottom: 2px solid var(--lavanda-2);
-  }
-
-  .servico-nome {
-    font-family: var(--font-display);
-    font-size: 1.45rem;
-    font-weight: 600;
-    color: var(--texto);
-  }
-
-  .servico-desc {
-    font-size: 1rem;
-    color: var(--texto-2);
-    line-height: 1.7;
-  }
-
-  .servico-img {
-    width: 100%;
-    max-width: 480px;
-    border-radius: 1rem;
-    margin-top: 1rem;
-    box-shadow: 0 4px 20px rgba(139,111,192,0.1);
-  }
-
-  /* POR QUE EM CASA */
-  .porque-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: start;
-    margin-top: 2rem;
-  }
-
-  .blocos-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .porque-imagem img {
-    width: 100%;
-    border-radius: 1.5rem;
-    box-shadow: 0 8px 40px rgba(139,111,192,0.12);
-    position: sticky;
-    top: 6rem;
-  }
-
-  .bloco-card {
-    background: var(--lavanda-1);
-    border-radius: var(--r);
-    padding: 2rem 2.25rem;
-    border-left: 4px solid var(--lavanda-3);
-  }
-
-  .bloco-card h3 { margin-bottom: 0.85rem; color: var(--texto); }
-  .bloco-card p { margin-bottom: 0.75rem; }
-
-  .bloco-destaque {
-    background: var(--rosa);
-    border-left-color: var(--lilas);
-  }
-
-  /* SEÇÕES COM IMAGEM */
-  .secao-com-imagem {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: start;
-  }
-
-  .secao-com-imagem--invertida {
-    direction: rtl;
-  }
-
-  .secao-com-imagem--invertida > * {
-    direction: ltr;
-  }
-
-  .secao-imagem img {
-    width: 100%;
-    border-radius: 1.5rem;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.1);
-  }
-
-  /* TEXTOS */
-  .texto-bloco p {
-    margin-bottom: 1.1rem;
-  }
-
-  .section--dark .texto-bloco p { color: rgba(255,255,255,0.92); }
-  .section--dark h2 { color: #fff; }
-  .section--dark .citacao--alt {
-    background: rgba(255,255,255,0.1);
-    border-left-color: var(--lavanda-3);
-    color: rgba(255,255,255,0.92);
-  }
-  .section--dark .citacao--alt cite { color: var(--lavanda-3); }
-
-  /* VANESSA */
-  .vanessa-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: start;
-    margin-top: 2rem;
-  }
-
-  .vanessa-imagem img {
-    width: 100%;
-    border-radius: 1.5rem;
-    box-shadow: 0 8px 40px rgba(139,111,192,0.12);
-  }
-
-  .vanessa-conteudo {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .credenciais {
-    display: flex;
-    flex-direction: column;
-    gap: 0.85rem;
-  }
-
-  .credencial-item {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    padding: 1.1rem 1.4rem;
-    background: var(--lavanda-1);
-    border-radius: 0.85rem;
-    font-size: 1rem;
-    color: var(--texto-2);
-  }
-
-  .credencial-label {
-    font-size: 0.73rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--lilas-2);
-    font-weight: 700;
-  }
-
-  /* BLOG RECENTES */
-  .blog-intro {
-    font-size: 1rem;
-    color: var(--texto-2);
-    max-width: 520px;
-    margin-bottom: 0.5rem;
-  }
-
-  .blog-recentes {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-    margin-top: 2rem;
-  }
-
-  .blog-card a {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    padding: 1.75rem 2rem;
-    background: var(--branco);
-    border-radius: var(--r);
-    border-left: 4px solid var(--lavanda-3);
-    transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
-    text-decoration: none;
-  }
-
-  .blog-card a:hover {
-    box-shadow: 0 4px 24px rgba(139,111,192,0.12);
-    transform: translateY(-2px);
-    border-left-color: var(--lilas);
-  }
-
-  .blog-card-categoria {
-    font-size: 0.73rem;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--lilas-2);
-  }
-
-  .blog-card-titulo {
-    font-family: var(--font-display);
-    font-size: clamp(1.15rem, 2.5vw, 1.4rem);
-    font-weight: 600;
-    color: var(--texto);
-    line-height: 1.25;
-  }
-
-  .blog-card-resumo {
-    font-size: 0.97rem;
-    color: var(--texto-2);
-    line-height: 1.65;
-  }
-
-  .blog-card-link {
-    font-size: 0.88rem;
-    font-weight: 700;
-    color: var(--lilas-2);
-    margin-top: 0.25rem;
-  }
-
-  /* CTA FINAL */
-  .cta-final {
-    background: linear-gradient(150deg, var(--lavanda-1) 0%, var(--rosa) 100%);
-    text-align: center;
-  }
-
-  .cta-final-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-  }
-
-  .cta-imagem {
-    width: 100%;
-    max-width: 320px;
-    border-radius: 1.5rem;
-    box-shadow: 0 8px 40px rgba(139,111,192,0.15);
-  }
-
-  .cta-final h2 { color: var(--texto); }
-
-  .cta-sub {
-    font-size: clamp(1.05rem, 2vw, 1.2rem);
-    color: var(--texto-2) !important;
-    font-weight: 500;
-    line-height: 1.7;
-  }
-
-  .cta-sub-destaque {
-    display: block;
-    font-size: clamp(1.1rem, 2.2vw, 1.3rem);
-    font-weight: 700;
-    color: var(--lilas-2);
-  }
-
-  /* FOOTER */
-  footer {
-    background: var(--texto);
-    color: var(--lavanda-1);
-  }
-
-  .footer-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 2rem;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-  }
-
-  .footer-marca { display: flex; flex-direction: column; gap: 0.4rem; }
-  .footer-marca strong { font-family: var(--font-display); font-size: 1.25rem; color: var(--lavanda-3); }
-  .footer-marca span { font-size: 0.9rem; color: rgba(240,235,250,0.6); }
-  .footer-links { display: flex; flex-direction: column; gap: 0.65rem; }
-  .footer-links a { font-size: 0.95rem; color: rgba(240,235,250,0.75); transition: color 0.2s; }
-  .footer-links a:hover { color: var(--lavanda-3); }
-  .footer-extra { display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.95rem; color: rgba(240,235,250,0.6); }
-  .footer-extra a { color: var(--lavanda-3); font-size: 0.82rem; line-height: 1.5; transition: opacity 0.2s; }
-  .footer-extra a:hover { opacity: 0.75; }
-  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding: 1rem 0; font-size: 0.8rem; color: rgba(240,235,250,0.3); }
-
-.footer-roseta {
-  padding: 0.5rem 0 1rem;
-  text-align: center;
-}
-
-.footer-roseta a {
-  font-size: 0.65rem;
-  color: rgba(26, 21, 35, 0.35);
-  text-decoration: none;
-  letter-spacing: 0.05em;
-}
-
-.footer-roseta a:hover {
-  color: rgba(26, 21, 35, 0.5);
-}
-
-  /* RESPONSIVO */
-  @media (max-width: 768px) {
-    .hero-inner,
-    .porque-layout,
-    .secao-com-imagem,
-    .vanessa-layout {
-      grid-template-columns: 1fr;
-    }
-
-    .secao-com-imagem--invertida {
-      direction: ltr;
-    }
-
-    .hero-imagem { order: -1; }
-    .porque-imagem img { position: static; }
-    .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
-    .bloco-card { padding: 1.5rem; }
-    .hero-btns { flex-direction: column; align-items: flex-start; }
-    .wa-label { display: none; }
-    .nav-link { display: none; }
-  }
-</style>
