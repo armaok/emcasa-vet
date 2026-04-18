@@ -5,11 +5,6 @@ const WA = 'https://wa.me/5543988577434?text=Olá%2C%20vim%20pelo%20site%20e%20g
 const WA_MEDIO = 'https://wa.me/5543988577434?text=Olá%2C%20Dra.%20Vanessa.%20Gostaria%20de%20entender%20como%20funciona%20o%20atendimento%20e%20saber%20os%20valores.';
 const WA_LABEL = 'Falar com a Vanessa';
 
-const posts = await Astro.glob('./blog/*.md');
-const recentes = posts
-  .sort((a, b) => new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime())
-  .slice(0, 3);
-
 const servicos = [
   {
     nome: 'Consulta clínica',
@@ -63,10 +58,7 @@ const servicos = [
       <a href="/" class="nav-logo">Em Casa Vet</a>
       <div class="nav-links">
         <a href="/blog" class="nav-link">Blog</a>
-        <a href={WA} class="btn-nav-wa" target="_blank" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.535 5.858L.057 23.428a.5.5 0 0 0 .609.61l5.71-1.494A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.956 9.956 0 0 1-5.127-1.417l-.367-.216-3.808.997 1.013-3.7-.239-.381A9.953 9.953 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-          <span class="wa-label">Falar com a Vanessa</span>
-        </a>
+        <a href={WA} class="nav-link">Agendar</a>
       </div>
     </div>
   </nav>
@@ -83,6 +75,11 @@ const servicos = [
           Onde o cuidado faz mais sentido.
         </p>
         <p class="hero-meta fade-up fade-up-3">Londrina · Cambé · Ibiporã</p>
+        <p class="hero-operacional fade-up fade-up-3">
+          Atendimento veterinário domiciliar com hora marcada.<br />
+          Dra. Vanessa Okamura — CRMV/PR 16455<br />
+          <span>Mestre em Clínicas Veterinárias (UEL) · Especialista em Cuidados Paliativos (PUC Minas)</span>
+        </p>
         <blockquote class="citacao fade-up fade-up-4">
           "Quando chego na casa, já consigo ver coisas que nenhum exame mostra. Onde ele dorme, o potinho de água, como ele me recebe. Isso faz parte da consulta."
           <cite>— Vanessa Okamura</cite>
@@ -125,10 +122,86 @@ const servicos = [
         ))}
       </ul>
       <div class="cta-center">
-        <a href={WA} class="btn-primary" target="_blank" rel="noopener">
-          {WA_LABEL}
+        <a href={WA_MEDIO} class="btn-secundario" target="_blank" rel="noopener">
+          Perguntar no WhatsApp
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.535 5.858L.057 23.428a.5.5 0 0 0 .609.61l5.71-1.494A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.956 9.956 0 0 1-5.127-1.417l-.367-.216-3.808.997 1.013-3.7-.239-.381A9.953 9.953 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section class="section" id="como-funciona">
+    <div class="container">
+      <span class="label label--secao">Como funciona</span>
+      <h2>Simples, do começo ao fim.</h2>
+      <div class="divider"></div>
+      <div class="passos">
+        <div class="passo">
+          <span class="passo-num">1</span>
+          <div class="passo-conteudo">
+            <h3>Conversa pelo WhatsApp</h3>
+            <p>Você me conta sobre o animal e o que está acontecendo. Respondo dúvidas, explico o que faria e passo os valores — sem compromisso.</p>
+          </div>
+        </div>
+        <div class="passo">
+          <span class="passo-num">2</span>
+          <div class="passo-conteudo">
+            <h3>Agendamento</h3>
+            <p>Marcamos dia e horário que funcionam para a família. Confirmo no dia anterior.</p>
+          </div>
+        </div>
+        <div class="passo">
+          <span class="passo-num">3</span>
+          <div class="passo-conteudo">
+            <h3>Atendimento em casa</h3>
+            <p>Chego com maleta completa — estetoscópio, termômetro, oxímetro, material de coleta e de procedimentos. O atendimento dura o tempo que o caso precisar.</p>
+          </div>
+        </div>
+        <div class="passo">
+          <span class="passo-num">4</span>
+          <div class="passo-conteudo">
+            <h3>Acompanhamento</h3>
+            <p>Não termino na porta. Continuo disponível pelo WhatsApp para dúvidas e para ajustar o cuidado junto com a família.</p>
+          </div>
+        </div>
+      </div>
+      <p class="como-nota">Atendimento com hora marcada. Não realizamos pronto-socorro de urgência.</p>
+      <div class="cta-center">
+        <a href={WA_MEDIO} class="btn-secundario" target="_blank" rel="noopener">
+          Perguntar no WhatsApp
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.535 5.858L.057 23.428a.5.5 0 0 0 .609.61l5.71-1.494A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.956 9.956 0 0 1-5.127-1.417l-.367-.216-3.808.997 1.013-3.7-.239-.381A9.953 9.953 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROVA SOCIAL -->
+  <section class="section section--alt" id="avaliacoes">
+    <div class="container">
+      <span class="label label--secao">O que dizem as famílias</span>
+      <h2>Quem cuida com a Em Casa Vet.</h2>
+      <div class="divider"></div>
+      <a href="https://g.page/r/CVh16NuU9OgHEBM/review" class="badge-google" target="_blank" rel="noopener">
+        <span class="badge-estrelas">★★★★★</span>
+        <span class="badge-texto">5,0 no Google · 83 avaliações</span>
+      </a>
+      <div class="depoimentos">
+        <div class="depoimento">
+          <span class="depoimento-aspas">"</span>
+          <p>Dra. Vanessa é uma excelente profissional, muito habilidosa e com muita empatia. Atendimento rápido, preço justo, prioriza o conforto do animal.</p>
+          <span class="depoimento-autor">— Delimania A.</span>
+        </div>
+        <div class="depoimento">
+          <span class="depoimento-aspas">"</span>
+          <p>Meus cachorros são grandes e eu não tenho carro, então procurei atendimento em casa e fui surpreendida pela qualidade. Dra. Vanessa é uma pessoa muito gentil.</p>
+          <span class="depoimento-autor">— N. G.</span>
+        </div>
+        <div class="depoimento">
+          <span class="depoimento-aspas">"</span>
+          <p>Cuidaram do meu cachorro com muito carinho e precisão. Só tenho a agradecer a Vanessa e o marido. Recomendo sem dúvida.</p>
+          <span class="depoimento-autor">— Kaline B.</span>
+        </div>
       </div>
     </div>
   </section>
@@ -279,7 +352,7 @@ const servicos = [
       <div class="footer-links">
         <a href="/blog">Blog</a>
         <a href="#servicos">Serviços</a>
-        <a href="#porque">Por que em casa</a>
+        <a href="#como-funciona">Como funciona</a>
         <a href="#geriatria">Geriatria</a>
         <a href="#paliativos">Paliativos</a>
         <a href="#vanessa">A veterinária</a>
@@ -370,7 +443,7 @@ const servicos = [
   .nav-links {
     display: flex;
     align-items: center;
-    gap: 1.25rem;
+    gap: 1.5rem;
   }
 
   .nav-link {
@@ -381,25 +454,6 @@ const servicos = [
   }
 
   .nav-link:hover { color: var(--lilas-2); }
-
-  .btn-nav-wa {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    background: #25D366;
-    color: #fff;
-    font-size: 0.88rem;
-    font-weight: 700;
-    padding: 0.55rem 1.1rem;
-    border-radius: 2rem;
-    transition: background 0.2s, transform 0.15s;
-    box-shadow: 0 2px 10px rgba(37,211,102,0.3);
-  }
-
-  .btn-nav-wa:hover {
-    background: #1da851;
-    transform: translateY(-1px);
-  }
 
   /* HERO */
   .hero {
@@ -445,7 +499,21 @@ const servicos = [
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--suave);
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero-operacional {
+    font-size: 0.95rem;
+    color: var(--texto-2);
+    opacity: 0.75;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+  }
+
+  .hero-operacional span {
+    font-size: 0.85rem;
+    opacity: 0.85;
   }
 
   .hero-btns {
@@ -534,6 +602,27 @@ const servicos = [
     box-shadow: 0 6px 24px rgba(139,111,192,0.4);
   }
 
+  .btn-secundario {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: transparent;
+    color: var(--lilas-2);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 1rem 2rem;
+    min-height: 56px;
+    border-radius: 2rem;
+    border: 2px solid var(--lavanda-3);
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .btn-secundario:hover {
+    background: var(--lavanda-1);
+    border-color: var(--lilas);
+  }
+
   .btn-blog {
     display: inline-flex;
     align-items: center;
@@ -581,6 +670,117 @@ const servicos = [
     border-radius: 1rem;
     margin-top: 1rem;
     box-shadow: 0 4px 20px rgba(139,111,192,0.1);
+  }
+
+  /* COMO FUNCIONA */
+  .passos {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 2rem;
+    border-top: 2px solid var(--lavanda-2);
+  }
+
+  .passo {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    padding: 1.75rem 0;
+    border-bottom: 2px solid var(--lavanda-2);
+  }
+
+  .passo-num {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--lavanda-3);
+    line-height: 1;
+    min-width: 2rem;
+    padding-top: 0.2rem;
+  }
+
+  .passo-conteudo h3 {
+    margin-bottom: 0.5rem;
+    color: var(--texto);
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+  }
+
+  .passo-conteudo p { color: var(--texto-2); line-height: 1.75; }
+
+  .como-nota {
+    margin-top: 2rem;
+    font-size: 0.88rem;
+    color: var(--suave);
+    text-align: center;
+    font-style: italic;
+  }
+
+  /* PROVA SOCIAL */
+  .badge-google {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--branco);
+    border: 2px solid var(--lavanda-2);
+    border-radius: 2rem;
+    padding: 0.75rem 1.5rem;
+    margin-bottom: 2.5rem;
+    text-decoration: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .badge-google:hover {
+    border-color: var(--lilas);
+    box-shadow: 0 4px 16px rgba(139,111,192,0.15);
+  }
+
+  .badge-estrelas {
+    font-size: 1.2rem;
+    color: #f5a623;
+    letter-spacing: 0.05em;
+  }
+
+  .badge-texto {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--texto);
+  }
+
+  .depoimentos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .depoimento {
+    background: var(--branco);
+    border-radius: var(--r);
+    padding: 1.75rem;
+    border-left: 4px solid var(--lavanda-3);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .depoimento-aspas {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    color: var(--lavanda-3);
+    line-height: 0.8;
+  }
+
+  .depoimento p {
+    font-style: italic;
+    font-size: 0.97rem;
+    color: var(--texto-2);
+    line-height: 1.7;
+    flex: 1;
+  }
+
+  .depoimento-autor {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--lilas-2);
   }
 
   /* POR QUE EM CASA */
@@ -741,14 +941,14 @@ const servicos = [
     .hero-inner,
     .porque-layout,
     .secao-com-imagem,
-    .vanessa-layout { grid-template-columns: 1fr; }
+    .vanessa-layout,
+    .depoimentos { grid-template-columns: 1fr; }
     .secao-com-imagem--invertida { direction: ltr; }
     .hero-imagem { order: -1; }
     .porque-imagem img { position: static; }
     .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
     .bloco-card { padding: 1.5rem; }
     .hero-btns { flex-direction: column; align-items: flex-start; }
-    .wa-label { display: none; }
-    .nav-link { display: none; }
+    .nav-link { font-size: 0.88rem; }
   }
 </style>
