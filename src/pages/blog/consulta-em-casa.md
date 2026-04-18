@@ -31,6 +31,6 @@ O meu cuidado não termina quando me despeço e saio da sua casa. O acompanhamen
 
 A medicina domiciliar é uma escolha de respeito pela história do seu animal. Se você percebeu que ele precisa de cuidados, ou se busca um acompanhamento mais gentil para a fase idosa dele, estou aqui para ajudar.
 
-**Dra. Vanessa Okamura** — Médica Veterinária (UEL) · CRMV/PR 16455
-Atendimento domiciliar em Londrina, Cambé e Ibiporã
+**Dra. Vanessa Okamura** — Médica Veterinária (UEL) · CRMV/PR 16455  
+Atendimento domiciliar em Londrina, Cambé e Ibiporã  
 [Falar pelo WhatsApp](https://wa.me/5543988577434?text=Olá%2C%20Dra.%20Vanessa.%20Gostaria%20de%20entender%20como%20funciona%20o%20atendimento%20e%20saber%20os%20valores.)
