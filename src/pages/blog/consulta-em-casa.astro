@@ -1,6 +1,59 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 const WA = 'https://wa.me/5543988577434?text=Olá%2C%20Dra.%20Vanessa.%20Gostaria%20de%20entender%20como%20funciona%20o%20atendimento%20e%20saber%20os%20valores.';
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://emcasa.vet/blog/consulta-em-casa",
+  "headline": "O que acontece em uma consulta veterinária em casa",
+  "description": "Do primeiro contato ao acompanhamento — como funciona o atendimento domiciliar e por que faz diferença para o animal e para a família.",
+  "image": "https://emcasa.vet/imagens/post-1-imagem-principal.webp",
+  "datePublished": "2026-04-18",
+  "dateModified": "2026-04-18",
+  "author": {
+    "@type": "Person",
+    "@id": "https://vanessaokamura.com.br",
+    "name": "Vanessa Yoshida Okamura",
+    "url": "https://vanessaokamura.com.br"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Em Casa Vet",
+    "url": "https://emcasa.vet",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://emcasa.vet/favicon-32x32.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://emcasa.vet/blog/consulta-em-casa"
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Em Casa Vet",
+        "item": "https://emcasa.vet"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://emcasa.vet/blog"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "O que acontece em uma consulta veterinária em casa",
+        "item": "https://emcasa.vet/blog/consulta-em-casa"
+      }
+    ]
+  }
+};
 ---
 <Layout
   title="O que acontece em uma consulta veterinária em casa — Em Casa Vet"
@@ -8,6 +61,7 @@ const WA = 'https://wa.me/5543988577434?text=Olá%2C%20Dra.%20Vanessa.%20Gostari
   ogImage="https://emcasa.vet/imagens/post-1-imagem-principal.webp"
   ogType="article"
 >
+<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
 
 <!-- BOTÃO FLUTUANTE WHATSAPP -->
   <div class="wa-float-wrapper">
