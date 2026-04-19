@@ -32,6 +32,45 @@ const schema = {
         "identifier": "CRMV-PR 16455"
       },
       "sameAs": "https://vanessaokamura.com.br",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "83",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Delimania A." },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "reviewBody": "Dra. Vanessa é uma excelente profissional, muito habilidosa e com muita empatia. Atendimento rápido, preço justo, prioriza o conforto do animal."
+        },
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "N. G." },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "reviewBody": "Meus cachorros são grandes e eu não tenho carro, então procurei atendimento em casa e fui surpreendida pela qualidade. Dra. Vanessa é uma pessoa muito gentil."
+        },
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Kaline B." },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "reviewBody": "Cuidaram do meu cachorro com muito carinho e precisão. Só tenho a agradecer a Vanessa e o marido. Recomendo sem dúvida."
+        }
+      ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Serviços veterinários domiciliares",
@@ -129,7 +168,34 @@ const schema = {
             "name": "Vanessa Yoshida Okamura",
             "identifier": "CRMV-PR 16455"
           },
-          "sameAs": "https://vanessaokamura.com.br"
+          "sameAs": "https://vanessaokamura.com.br",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "reviewCount": "83",
+            "bestRating": "5",
+            "worstRating": "1"
+          },
+          "review": [
+            {
+              "@type": "Review",
+              "author": { "@type": "Person", "name": "Delimania A." },
+              "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+              "reviewBody": "Dra. Vanessa é uma excelente profissional, muito habilidosa e com muita empatia. Atendimento rápido, preço justo, prioriza o conforto do animal."
+            },
+            {
+              "@type": "Review",
+              "author": { "@type": "Person", "name": "N. G." },
+              "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+              "reviewBody": "Meus cachorros são grandes e eu não tenho carro, então procurei atendimento em casa e fui surpreendida pela qualidade. Dra. Vanessa é uma pessoa muito gentil."
+            },
+            {
+              "@type": "Review",
+              "author": { "@type": "Person", "name": "Kaline B." },
+              "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+              "reviewBody": "Cuidaram do meu cachorro com muito carinho e precisão. Só tenho a agradecer a Vanessa e o marido. Recomendo sem dúvida."
+            }
+          ]
         },
         {
           "@type": "Person",
@@ -300,7 +366,7 @@ const schema = {
     <main>
       <slot />
     </main>
-<script is:inline type="text/javascript">
+    <script is:inline type="text/javascript">
       (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
