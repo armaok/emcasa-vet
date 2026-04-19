@@ -16,6 +16,8 @@ const servicos = [
     desc: 'Sem estresse de transporte. No horário que funciona para a família.',
     imagem: '/imagens/vacinas.webp',
     imagemAlt: 'Gato tranquilo sendo vacinado em casa',
+    imagemWidth: 800,
+    imagemHeight: 436,
   },
   {
     nome: 'Coleta de exames de sangue',
@@ -93,7 +95,14 @@ const servicos = [
         </div>
       </div>
       <div class="hero-imagem">
-        <img src="/imagens/vanessa-real.webp" alt="Vanessa Okamura, veterinária domiciliar, com seus pacientes em casa" loading="eager" />
+        <img
+          src="/imagens/vanessa-real.webp"
+          alt="Vanessa Okamura, veterinária domiciliar, com seus pacientes em casa"
+          width="750"
+          height="1000"
+          loading="eager"
+          fetchpriority="high"
+        />
       </div>
     </div>
   </section>
@@ -110,7 +119,14 @@ const servicos = [
             <span class="servico-nome">{s.nome}</span>
             <span class="servico-desc">{s.desc}</span>
             {s.imagem && (
-              <img class="servico-img" src={s.imagem} alt={s.imagemAlt} loading="lazy" />
+              <img
+                class="servico-img"
+                src={s.imagem}
+                alt={s.imagemAlt}
+                width={s.imagemWidth}
+                height={s.imagemHeight}
+                loading="lazy"
+              />
             )}
             {s.citacao && (
               <blockquote class="citacao citacao--servico">
@@ -230,7 +246,13 @@ const servicos = [
           </div>
         </div>
         <div class="porque-imagem">
-          <img src="/imagens/porque-em-casa.webp" alt="Veterinária observando gato no próprio ambiente doméstico" loading="lazy" />
+          <img
+            src="/imagens/porque-em-casa.webp"
+            alt="Veterinária observando gato no próprio ambiente doméstico"
+            width="900"
+            height="491"
+            loading="lazy"
+          />
         </div>
       </div>
       <blockquote class="citacao citacao--alt">
@@ -257,7 +279,13 @@ const servicos = [
           </blockquote>
         </div>
         <div class="secao-imagem">
-          <img src="/imagens/geriatria.webp" alt="Veterinária orientando tutor sobre medicação do cachorro em casa" loading="lazy" />
+          <img
+            src="/imagens/geriatria.webp"
+            alt="Veterinária orientando tutor sobre medicação do cachorro em casa"
+            width="900"
+            height="491"
+            loading="lazy"
+          />
         </div>
       </div>
     </div>
@@ -280,7 +308,13 @@ const servicos = [
           </blockquote>
         </div>
         <div class="secao-imagem">
-          <img src="/imagens/paliativos.webp" alt="Veterinária ausculando cachorro tranquilo no sofá com tutor idoso presente" loading="lazy" />
+          <img
+            src="/imagens/paliativos.webp"
+            alt="Veterinária ausculando cachorro tranquilo no sofá com tutor idoso presente"
+            width="800"
+            height="436"
+            loading="lazy"
+          />
         </div>
       </div>
     </div>
@@ -294,7 +328,13 @@ const servicos = [
       <div class="divider"></div>
       <div class="vanessa-layout">
         <div class="vanessa-imagem">
-          <img src="/imagens/vanessa.webp" alt="Veterinária e tutora cuidando de golden retriever juntas em casa" loading="lazy" />
+          <img
+            src="/imagens/vanessa.webp"
+            alt="Veterinária e tutora cuidando de golden retriever juntas em casa"
+            width="700"
+            height="700"
+            loading="lazy"
+          />
         </div>
         <div class="vanessa-conteudo">
           <div class="texto-bloco">
@@ -332,7 +372,14 @@ const servicos = [
   <!-- CTA FINAL -->
   <section class="section cta-final">
     <div class="container cta-final-inner">
-      <img src="/imagens/cta.webp" alt="Agende sua consulta veterinária domiciliar" class="cta-imagem" loading="lazy" />
+      <img
+        src="/imagens/cta.webp"
+        alt="Agende sua consulta veterinária domiciliar"
+        class="cta-imagem"
+        width="700"
+        height="700"
+        loading="lazy"
+      />
       <h2>Seu animal merece<br />cuidado em casa.</h2>
       <p class="cta-sub">
         A primeira conversa é pelo WhatsApp.<br />
@@ -529,10 +576,10 @@ const servicos = [
 
   .hero-imagem img {
     width: 100%;
+    height: auto;
     border-radius: 1.5rem;
     box-shadow: 0 8px 40px rgba(139,111,192,0.15);
     object-fit: cover;
-    max-height: 520px;
   }
 
   .label--secao { color: var(--lilas-2); font-size: 0.85rem; }
@@ -671,6 +718,7 @@ const servicos = [
   .servico-img {
     width: 100%;
     max-width: 480px;
+    height: auto;
     border-radius: 1rem;
     margin-top: 1rem;
     box-shadow: 0 4px 20px rgba(139,111,192,0.1);
@@ -800,6 +848,7 @@ const servicos = [
 
   .porque-imagem img {
     width: 100%;
+    height: auto;
     border-radius: 1.5rem;
     box-shadow: 0 8px 40px rgba(139,111,192,0.12);
     position: sticky;
@@ -830,6 +879,7 @@ const servicos = [
 
   .secao-imagem img {
     width: 100%;
+    height: auto;
     border-radius: 1.5rem;
     box-shadow: 0 8px 40px rgba(0,0,0,0.1);
   }
@@ -855,6 +905,7 @@ const servicos = [
 
   .vanessa-imagem img {
     width: 100%;
+    height: auto;
     border-radius: 1.5rem;
     box-shadow: 0 8px 40px rgba(139,111,192,0.12);
   }
@@ -897,6 +948,7 @@ const servicos = [
   .cta-imagem {
     width: 100%;
     max-width: 320px;
+    height: auto;
     border-radius: 1.5rem;
     box-shadow: 0 8px 40px rgba(139,111,192,0.15);
   }
