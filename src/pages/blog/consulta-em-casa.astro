@@ -29,6 +29,14 @@ const WA = 'https://wa.me/5543988577434?text=Olá%2C%20Dra.%20Vanessa.%20Gostari
     </header>
 
     <div class="container post-corpo">
+      <img
+        src="/imagens/post-1-imagem-principal.webp"
+        alt="Consulta em casa: o veterinário onde seu pet se sente melhor"
+        width="634"
+        height="346"
+        loading="eager"
+        class="post-hero-img"
+      />
       <p>Quando notamos que nosso animal não está bem, a preocupação se aloja nos pequenos detalhes. É aquela manhã em que você acorda mais cedo só para ver se ele tocou na ração da noite anterior, ou quando repara que ele hesita antes de subir no sofá. O olhar fica um pouco mais distante, e o coração aperta. É nesse momento de vulnerabilidade que a ideia de levá-lo a uma clínica pode parecer pesada demais. Existe a preocupação com a saúde, claro, mas também a angústia de colocá-lo na caixa de transporte, enfrentar o trânsito e aguardar em uma recepção cheia de cheiros e sons que o assustam.</p>
 
       <p>Foi observando essa angústia, tanto dos animais quanto das famílias, que escolhi a medicina veterinária domiciliar. A casa do seu pet não é apenas o lugar onde ele dorme. A casa é o porto seguro dele. Para mim, como veterinária, estar na sala de vocês me permite enxergar o comportamento real do animal, livre do medo que o ambiente desconhecido de uma clínica costuma provocar.</p>
@@ -265,8 +273,16 @@ const WA = 'https://wa.me/5543988577434?text=Olá%2C%20Dra.%20Vanessa.%20Gostari
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  @media (min-width: 768px) {
+@media (min-width: 768px) {
     .wa-float { width: 64px; height: 64px; }
     .wa-float svg { width: 32px; height: 32px; }
+  }
+
+  .post-hero-img {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 4px 24px rgba(139,111,192,0.12);
   }
 </style>
