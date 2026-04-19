@@ -7,7 +7,7 @@ const {
   description = 'Atendimento veterinário domiciliar em Londrina, Cambé e Ibiporã. Consultas, vacinas, geriatria e cuidados paliativos — no aconchego do lar.',
 } = Astro.props;
 
-const schema = {
+const schema = Astro.props.schema ?? {
   "@context": "https://schema.org",
   "@graph": [
     {
