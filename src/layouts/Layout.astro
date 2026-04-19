@@ -1,13 +1,10 @@
-Aqui está o `src/layouts/Layout.astro` completo com `aggregateRating` corrigido, `review` removido e `FAQPage` adicionado:
-
-```astro
 ---
 const {
   title = 'Em Casa Vet — Atendimento Veterinário Domiciliar',
   description = 'Atendimento veterinário domiciliar em Londrina, Cambé e Ibiporã. Consultas, vacinas, geriatria e cuidados paliativos — no aconchego do lar.',
 } = Astro.props;
 
-const schema = Astro.props.schema ?? {
+const defaultSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -101,63 +98,44 @@ const schema = Astro.props.schema ?? {
         {
           "@type": "Question",
           "name": "Quais cidades a Em Casa Vet atende?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A Em Casa Vet atende em Londrina, Cambé e Ibiporã."
-          }
+          "acceptedAnswer": { "@type": "Answer", "text": "A Em Casa Vet atende em Londrina, Cambé e Ibiporã." }
         },
         {
           "@type": "Question",
           "name": "Como funciona o agendamento?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "O agendamento é feito pelo WhatsApp. Você conta sobre o animal e o que está acontecendo, a Dra. Vanessa explica o que faria e passa os valores sem compromisso, e juntos marcam dia e horário que funcionam para a família."
-          }
+          "acceptedAnswer": { "@type": "Answer", "text": "O agendamento é feito pelo WhatsApp. Você conta sobre o animal e o que está acontecendo, a Dra. Vanessa explica o que faria e passa os valores sem compromisso, e juntos marcam dia e horário que funcionam para a família." }
         },
         {
           "@type": "Question",
           "name": "Quais serviços são realizados em domicílio?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "São realizados em domicílio: consulta clínica, vacinas, coleta de exames de sangue, soro, acompanhamento pré e pós-cirúrgico, geriatria veterinária, cuidados paliativos e encaminhamento com acompanhamento referenciado."
-          }
+          "acceptedAnswer": { "@type": "Answer", "text": "São realizados em domicílio: consulta clínica, vacinas, coleta de exames de sangue, soro, acompanhamento pré e pós-cirúrgico, geriatria veterinária, cuidados paliativos e encaminhamento com acompanhamento referenciado." }
         },
         {
           "@type": "Question",
           "name": "A Em Casa Vet atende emergências?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Não. O atendimento é realizado com hora marcada e não inclui pronto-socorro de urgência."
-          }
+          "acceptedAnswer": { "@type": "Answer", "text": "Não. O atendimento é realizado com hora marcada e não inclui pronto-socorro de urgência." }
         },
         {
           "@type": "Question",
           "name": "Por que fazer exame de sangue em casa?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "O estresse do transporte eleva o cortisol e pode distorcer os resultados dos exames, especialmente em gatos. Em casa, o exame reflete o estado real do animal — não o dia difícil que ele teve."
-          }
+          "acceptedAnswer": { "@type": "Answer", "text": "O estresse do transporte eleva o cortisol e pode distorcer os resultados dos exames, especialmente em gatos. Em casa, o exame reflete o estado real do animal — não o dia difícil que ele teve." }
         },
         {
           "@type": "Question",
           "name": "Qual é a formação da Dra. Vanessa Okamura?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A Dra. Vanessa Okamura é médica veterinária formada pela UEL — Universidade Estadual de Londrina, mestre em Clínicas Veterinárias pela UEL e especialista em Cuidados Paliativos e Terapia da Dor pela PUC Minas. Registro ativo CRMV/PR 16455."
-          }
+          "acceptedAnswer": { "@type": "Answer", "text": "A Dra. Vanessa Okamura é médica veterinária formada pela UEL — Universidade Estadual de Londrina, mestre em Clínicas Veterinárias pela UEL e especialista em Cuidados Paliativos e Terapia da Dor pela PUC Minas. Registro ativo CRMV/PR 16455." }
         },
         {
           "@type": "Question",
           "name": "A Em Casa Vet atende animais idosos e em cuidados paliativos?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Sim. Geriatria veterinária e cuidados paliativos são especialidades da Dra. Vanessa. O acompanhamento é contínuo, com foco em qualidade de vida, conforto e gestão da dor no ambiente onde o animal já está."
-          }
+          "acceptedAnswer": { "@type": "Answer", "text": "Sim. Geriatria veterinária e cuidados paliativos são especialidades da Dra. Vanessa. O acompanhamento é contínuo, com foco em qualidade de vida, conforto e gestão da dor no ambiente onde o animal já está." }
         }
       ]
     }
   ]
 };
+
+const schemaData = JSON.stringify(defaultSchema);
 ---
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -172,110 +150,7 @@ const schema = Astro.props.schema ?? {
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "VeterinaryCare",
-          "@id": "https://emcasa.vet",
-          "name": "Em Casa Vet",
-          "description": "Atendimento veterinário domiciliar especializado em geriatria e cuidados paliativos para animais em Londrina, Cambé e Ibiporã.",
-          "url": "https://emcasa.vet",
-          "telephone": "+5543988577434",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Londrina",
-            "addressRegion": "PR",
-            "addressCountry": "BR"
-          },
-          "areaServed": [
-            { "@type": "City", "name": "Londrina" },
-            { "@type": "City", "name": "Cambé" },
-            { "@type": "City", "name": "Ibiporã" }
-          ],
-          "provider": {
-            "@type": "Person",
-            "@id": "https://vanessaokamura.com.br",
-            "name": "Vanessa Yoshida Okamura",
-            "identifier": "CRMV-PR 16455"
-          },
-          "sameAs": "https://vanessaokamura.com.br",
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "5.0",
-            "reviewCount": "83",
-            "bestRating": "5",
-            "worstRating": "1"
-          },
-          "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Serviços veterinários domiciliares",
-            "itemListElement": [
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Consulta clínica domiciliar" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Vacinas" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Coleta de exames de sangue" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Soro em domicílio" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Acompanhamento pré e pós-cirúrgico" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Geriatria veterinária" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cuidados paliativos" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Encaminhamento e acompanhamento" } }
-            ]
-          }
-        },
-        {
-          "@type": "Person",
-          "@id": "https://vanessaokamura.com.br",
-          "name": "Vanessa Yoshida Okamura",
-          "url": "https://vanessaokamura.com.br",
-          "image": "https://emcasa.vet/imagens/vanessa-real.webp",
-          "jobTitle": "Médica Veterinária"
-        },
-        {
-          "@type": "FAQPage",
-          "@id": "https://emcasa.vet/#faq",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "Quais cidades a Em Casa Vet atende?",
-              "acceptedAnswer": { "@type": "Answer", "text": "A Em Casa Vet atende em Londrina, Cambé e Ibiporã." }
-            },
-            {
-              "@type": "Question",
-              "name": "Como funciona o agendamento?",
-              "acceptedAnswer": { "@type": "Answer", "text": "O agendamento é feito pelo WhatsApp. Você conta sobre o animal e o que está acontecendo, a Dra. Vanessa explica o que faria e passa os valores sem compromisso, e juntos marcam dia e horário que funcionam para a família." }
-            },
-            {
-              "@type": "Question",
-              "name": "Quais serviços são realizados em domicílio?",
-              "acceptedAnswer": { "@type": "Answer", "text": "São realizados em domicílio: consulta clínica, vacinas, coleta de exames de sangue, soro, acompanhamento pré e pós-cirúrgico, geriatria veterinária, cuidados paliativos e encaminhamento com acompanhamento referenciado." }
-            },
-            {
-              "@type": "Question",
-              "name": "A Em Casa Vet atende emergências?",
-              "acceptedAnswer": { "@type": "Answer", "text": "Não. O atendimento é realizado com hora marcada e não inclui pronto-socorro de urgência." }
-            },
-            {
-              "@type": "Question",
-              "name": "Por que fazer exame de sangue em casa?",
-              "acceptedAnswer": { "@type": "Answer", "text": "O estresse do transporte eleva o cortisol e pode distorcer os resultados dos exames, especialmente em gatos. Em casa, o exame reflete o estado real do animal — não o dia difícil que ele teve." }
-            },
-            {
-              "@type": "Question",
-              "name": "Qual é a formação da Dra. Vanessa Okamura?",
-              "acceptedAnswer": { "@type": "Answer", "text": "A Dra. Vanessa Okamura é médica veterinária formada pela UEL — Universidade Estadual de Londrina, mestre em Clínicas Veterinárias pela UEL e especialista em Cuidados Paliativos e Terapia da Dor pela PUC Minas. Registro ativo CRMV/PR 16455." }
-            },
-            {
-              "@type": "Question",
-              "name": "A Em Casa Vet atende animais idosos e em cuidados paliativos?",
-              "acceptedAnswer": { "@type": "Answer", "text": "Sim. Geriatria veterinária e cuidados paliativos são especialidades da Dra. Vanessa. O acompanhamento é contínuo, com foco em qualidade de vida, conforto e gestão da dor no ambiente onde o animal já está." }
-            }
-          ]
-        }
-      ]
-    }
-    </script>
+    <script type="application/ld+json" set:html={schemaData} />
     <style>
       @font-face {
         font-display: swap;
@@ -443,6 +318,3 @@ const schema = Astro.props.schema ?? {
     </script>
   </body>
 </html>
-```
-
-Substitui e me confirma quando subir. Depois testamos no Rich Results Test do Google.
